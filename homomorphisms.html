@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Hello</title>
+  </head>
+  <body>
+    <div style="margin-left:auto;margin-right:auto;width:40em">
+      <p>
+      A group <strong>homomorphism</strong> is a map \(f \colon G \to G'\) with \(f(gh) = f(g)f(h)\).
+      </p>
+      <p>
+	The following properties follow:
+	<ol>
+		<li>\(f(e) = f(e')\)</li>
+		<li>\(f(g^{-1}) = f(g)^{-1}\)</li>
+	</ol>
+      </p>
+      <p>
+        If \(f \colon G \to G'\) and \(h \colon G' \to G''\) are homomorphisms, then their composition \(h \circ f\) is also a homomorphism:
+	\[ \begin{aligned} (h \circ f)(g_{1}g_{2}) &= h(f(g_{1}g_{2})) \\ &= h(f(g_{1})f(g_{2})) \\ &= h(f(g_{1}))h(f(g_{2})) \\ &= (h \circ f)(g_{1})(h \circ f)(g_{2}). \end{aligned}\]
+      </p>
+      <p>
+      The <strong>image</strong> of a homomorphism \(f \colon G \to G'\) is the set of things hit by \(f\):
+        \[\textrm{im }f = \{f(g) \mid g \in G\}. \]
+      </p>
+      <p>
+      The <strong>kernel</strong> of \(f\) is the set of elements that are mapped to the identity in \(G'\):
+        \[\textrm{ker }f = \{g \in G \mid f(g) = e'\}. \]
+      </p>
+      <p>
+      The image and the kernel are both subgroups, one of \(G'\) and the other of \(G\). If the image is \(G'\) and the kernel is \(\{e\}\), then \(f\) is called an <strong>isomorphism</strong>. If, in addition, \(G = G'\), then \(f\) is called an <strong>automorphism</strong> of \(G\).
+      </p>
+      <p>
+      The kernel of a homomorphism is an example of a <strong>normal subgroup</strong>. A subgroup \(H \subset G\) is a normal subgroup, denoted \(H \vartriangleleft G\), if it is closed under conjugation by \(G\). That is, for all \(g \in G\), \(gHg^{-1} = H\). To show that the kernel is a normal subgroup, let \(h \in \textrm{ker }f\). Then
+      \[ \begin{aligned} f(ghg^{-1}) &= f(g)f(h)f(g^{-1}) \\ &= f(g)e'f(g^{-1}) \\ &= f(g)f(g^{-1}) \\ &= f(g)f(g)^{-1} = e'. \end{aligned}\]
+      </p>
+      <p>
+        The subgroup \(H = \langle e, \tau = (1 2) \rangle \) of \(S_{3}\) is an example of a subgroup that is not normal. If we conjugate \(\tau\) by \(\tau' = (2 3)\), we have \(\tau'\tau(\tau')^{-1}(3) = \tau'\tau\tau'(3) = \tau'\tau(2) = \tau'(1) = 1 \neq 3\), so the conjugate is not in \(H\). Since \(H\) isn't a normal subgroup, we know that it can't be the kernel of a homomorphism.
+      </p>
+      <p>
+        Another example of a normal subgroup is the <strong>center</strong> of a group \(G\), denoted \(Z(G)\). These are the elements of \(G\) that commute with everything in \(G\):
+	\[ Z(G) = \{z \in G \mid zg = gz \textrm{  for all  } g \in G\}. \]
+	For example,
+	<ul>
+	  <li>\(Z(G) = G\) if and only if \(G\) is abelian.</li>
+	  <li>\(Z(S_n) = \{e\}\) for \(n > 2\).</li>
+	  <li>\(Z(GL_{n}(\mathbb{R})) = \{\lambda I \mid \lambda \in \mathbb{R}^{\times}\}\).</li>
+	</ul>
+      </p>
+      <p>
+        We now show several examples of homomorphisms:
+	<ol>
+	  <li>
+            <p>
+	    The determinant map \(\textrm{det} \colon GL_{n}(\mathbb{R}) \to \mathbb{R}^{\times}\) is a homomorphism, since \(\textrm{det }(AB) = (\textrm{det }A)(\textrm{det }B)\). The image is \(\mathbb{R}^{\times}\), and the kernel, the set of matrices with determinant 1, is called \(SL_{n}(\mathbb{R})\), the special linear group of dimension \(n\).
+            </p>
+	    <p>
+	      Another way to see that \(SL_{n}(\mathbb{R})\) is a normal subgroup (besides being the kernel of a homomorphism) is to note that the determinant is stable under conjugation:
+	      \[ \begin{aligned} \textrm{det }(BAB^{-1}) &= (\textrm{det }B)(\textrm{det }A)(\textrm{det }B^{-1}) \\ &= (\textrm{det }B)(\textrm{det }A)(\textrm{det }B)^{-1} \\ &= (\textrm{det }B)(\textrm{det }B)^{-1}(\textrm{det }A) \\ &= \textrm{det }A. \end{aligned} \]
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	    The map \(f \colon S_{n} \to GL_{n}(\mathbb{R})\), which maps a permutation \(\sigma\) to its permutation matrix, \(A_{\sigma}\), is a homomorphism. The image of \(f\) is the set of matrices with a 1 in each row and each column and zeroes elsewhere, and the kernel of \(f\) is \(\{e\}\).
+	    </p>
+	  </li>
+	  <li>
+		  The composition of \(f\) and det gives a homomorphism from \(S_{n}\) to \(\mathbb{R}^{\times}\) with image \(\langle \pm 1 \rangle \). The kernel, the permutations \(\sigma\) for which \(f(\sigma) = 1\), is called the alternating group on \(n\) letters, \(A_{n}\). For example, \(A_{3} = \{e, (1 2 3), (1 3 2)\}\).
+	  </li>
+	  <li>
+	    <p>
+	      For any group \(G\), there is a homomorphism \(f \colon G \to \textrm{Aut }G\), the automorphism group of G, defined as conjugation by \(g \in G\). That is, \(f(g)(h) = ghg^{-1}\).
+	    </p>
+	    <p>
+	    We first check that for \(g \in G\), \(f(g)\) gives an isomorphism. The map \(f(g)\) is a homomorphism since
+	    \[ f(g)(hh') = g(hh')g^{-1} = (ghg^{-1})(gh'g^{-1}) = f(g(h))f(g(h')). \]
+	    And it's an isomorphism since it can be inverted with \(f(g^{-1})\):
+	    \[ f(g^{-1})(f(g)(h)) = f(g^{-1})(ghg^{-1}) = g^{-1}(ghg^{-1})g = h. \]
+	    </p>
+	    <p>
+	      Now, we verify that \(f\) is a homomorphism:
+	      \[ \begin{aligned} f(gg')(h) &= (gg')h(gg')^{-1} \\ &= gg'h(g')^{-1}g^{-1} \\ &= f(g)(g'h(g')^{-1}) \\ &= f(g)(f(g')(h)) \\ &= f(g) \circ f(g')(h).  \end{aligned} \]
+	    </p>
+	    <p>
+	      The kernel of \(f\) are the elements of \(G\) that give the identity automorphism. In other words,
+	      \[ \textrm{ker } f = \{ g \in G \mid ghg^{-1} = h \textrm{ for all } h \}, \]
+	      and this is exactly \(Z(G)\).
+	    </p>
+	    <p>
+	    The image of \(f\) is called the inner automorphism group of \(G\) and is denoted \(\textrm{Inn }G\). These are the automorphisms obtained from conjugation by a group element.
+	    </p>
+	    <p>
+	    In fact, \(\textrm{Inn }G\) is a normal subgroup of \(\textrm{Aut }G\). Assume \(a \in \textrm{Inn }G\) is defined as conjugation by \(g\). Then conjugation of \(a\) by \(b \in \textrm{Aut }G\) gives the automorphism defined as conjugation by \(b(g)\):
+	      \[ \begin{aligned} b \circ a \circ b^{-1}(h) &= b(a(b^{-1}(h))) \\ &= b(gb^{-1}(h)g^{-1}) \\ &= b(g)(b \circ b^{-1})(h)b(g^{-1}) \\ &= b(g)hb(g)^{-1}.  \end{aligned} \]
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </div>
+  </body>
+</html>
