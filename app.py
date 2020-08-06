@@ -12,3 +12,7 @@ def homomorphisms():
 @app.route('/cosets.html')
 def cosets():
     return render_template('cosets.html')
+
+@app.route('/quotient.html')
+def quotient():
+    return render_template('quotient.html')
