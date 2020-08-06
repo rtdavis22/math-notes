@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>The Coset Decomposition of a Group</title>
+  </head>
+  <body>
+    <div style="margin-left:auto;margin-right:auto;width:40em">
+      <h3>The Coset Decomposition of a Group</h3>
+      <p>
+        Given any subgroup \(H\) of \(G\), an equivalence relation can be defined on \(G\) by
+	\[ a \equiv b \textrm{ if } b = ah \textrm{ for some } h \in H. \]
+        We briefly check that each of the required properties holds:
+	<ul>
+	  <li>Transitivity: If \(a \equiv b\) and \(b \equiv c\), then \(b = ah\) and \(c = bh'\) for some \(h\) and \(h'\) in \(H\). Thus, \(c = ahh'\) and \(a \equiv c\).</li>
+	  <li>Symmetry: If \(a \equiv b\), then \(b = ah\). So \(a = bh^{-1}\) and \(b \equiv a\).</li>
+	  <li>Reflexivity: Since \(a = ae\) and \(e \in H\), then \(a \equiv a\).</li>
+	</ul>
+      </p>
+      <p>
+        The equivalence classes of this equivalence relation are called the <strong>left cosets</strong> of H in G. If \(a \in H\), then
+	\[ aH = \{ah \mid h \in H\} \]
+	is one of the left cosets. In particular, \(eH = H\) is one of the cosets.
+      </p>
+      <p>
+	Each left coset \(aH\) can be bijectively identified with \(H\) using the map \(aH \to H\) defined by multiplication on the left by \(a^{-1}\). The map is bijective since it can be inverted with multiplication by \(a\).
+	Thus, all left cosets have the same order.
+      </p>
+      <p>
+        The number of left cosets of a subgroup \(H\) in \(G\) is called the <strong>index</strong> of \(H\) in \(G\) and is denoted \([G \colon H]\).
+	Since all left cosets have the same order, we have the <strong>Counting Formula</strong>:
+	\[ \vert G \vert = \vert H \vert [G \colon H]. \]
+	From this it is clear that the order of \(H\) divides the order of \(G\) if \(G\) is finite. This is called <strong>Lagrange's Theorem</strong>. It follows that the order of any element in \(G\) divides the order of \(G\).
+      </p>
+      <p>Some examples:</p>
+      <ol>
+	<li>
+	  Let \(G\) be a finite group of prime order. Then the only subgroups of \(G\) are \(G\) and \(\{e\}\). Groups with this property are called <strong>simple</strong>. Furthermore, all non-trivial elements of \(G\) generate the group. That is, \(\langle g \rangle = G\) for \(g \neq e\).
+	</li>
+	<li>
+          <p>
+	    Let \(H\) be the kernel of a homomorphism \(f \colon G \to G'\). We show that the equivalence relation holds between two elements in \(G\) if and only if they have the same image under \(f\):
+	    <ul>
+	      <li>Assume \(a \equiv b\). Then \(b = ah\) for some \(h\) in \(H\). Thus,
+	      \[ f(b) = f(ah) = f(a)f(h) = f(a). \]
+	      </li>
+	      <li>Now assume \(f(b) = f(a)\). Then \(f(a^{-1}b) = e'\), so \(a^{-1}b = h\) for some \(h\) in \(H\). It follows that \(b = ah\) and \(a \equiv b\).
+	    </ul>
+	  </p>
+	  <p>
+	    This implies that the left cosets of \(H\) are in bijection with the image of \(f\). So
+	    \[ [ G \colon \textrm{ker } f] = \vert \textrm{im } f \vert. \]
+	    Combining this result with the Counting Formula, we have
+	    \[ \vert G \vert = \vert \textrm{ker } f \vert \cdot \vert \textrm{im } f \vert. \]
+	  </p>
+	</li>
+	<li>
+          The alternating group on \(n\) letters, \(A_{n}\), is by definition the kernel of the homomorphism \(f \colon S_{n} \to \langle \pm 1 \rangle\) defined in the previous section. Using the result from the previous example, we have \(\vert S_{n} \vert = \vert A_{n} \vert \cdot 2\), or \(\vert A_{n} \vert = \frac{n!}{2}\).
+	</li>
+      </ol>
+    </div>
+  </body>
+</html>

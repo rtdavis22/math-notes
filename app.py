@@ -8,3 +8,7 @@ def home():
 @app.route('/homomorphisms.html')
 def homomorphisms():
     return render_template('homomorphisms.html')
+
+@app.route('/cosets.html')
+def cosets():
+    return render_template('cosets.html')
