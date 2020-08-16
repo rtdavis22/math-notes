@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Group Actions</title>
+  </head>
+  <body>
+    <div style="margin-left:auto;margin-right:auto;width:40em">
+      <h3>Group Actions</h3>
+      <p>
+      A <strong>action</strong> of a group \(G\) on a set \(S\) is a map \(G \times S \to S\) that satisfies two properties:
+	<ul>
+		<li>Identity: \(es = s\) for all \(s \in S\)</li>
+		<li>Associativity: \((gg')s = g(g's)\) for all \(g, g' \in G\) and \(s \in S\)</li>
+        </ul>
+      </p>
+      <p>
+        The <strong>orbit</strong> of an element \(s \in S\) is the set of elements in \(S\) that can be reached by the group action:
+	\[ O_{s} = \{s' \in S \mid s' = gs \textrm{ for some } g \in G\}. \]
+	The orbits of a group action partition the set \(S\) via the equivalence relation
+	\[ s \sim s' \textrm{ if } s' = gs \textrm{ for some } g \in G. \]
+	If \(S\) consists of just one orbit, the action is said to be <strong>transitive</strong>.
+      </p>
+      <p>
+        The <strong>stabilizer</strong> of an element \(s \in S\) is the subgroup of \(G\) that leaves \(s\) fixed:
+        \[ G_{s} = \{g \in G \mid gs = s\}. \]
+      </p>
+      <p>
+        Some examples of group actions:
+	<ol>
+		<li>The symmetric group \(S_{n}\) acts transitively on any set with \(n\) elements by permuting the elements of the set. The stabilizer of any element is isomorphic to the subgroup \(S_{n - 1}\).</li>
+		<li>
+			<p>Let \(M_{2}\) be the group of all isometries of the plane, the maps \(\mathbb{R}^{2} \to \mathbb{R}^{2}\) that preserve distances.</p>
+			<p>This group acts transitively on the set of points in the plane. The stabilizer of the origin is \(O_{2}\), the orthogonal group in dimension \(2\).</p>
+			<p>If \(S\) is the set of triangles in the plane, then the orbit of a given triangle is the set of triangles congruent to it. This is not a transitive action. The stabilizer of a given triangle is isomorphc to the dihedral group \(D_{3}\).</p>
+		</li>
+		<li>
+			<p>Let \(G\) be any group and \(H \subset G\). Denote the set of left cosets of \(H\) in \(G\) by \(G/H\), copying the notation used for quotient groups. The group \(G\) acts on \(G/H\) using the map \(g(aH) \mapsto gaH\).</p>
+			<p>Since the coset \(eH\) can be mapped to any other coset, there must be only one orbit. Thus the action is transitive.</p>
+			<p>
+			  The stabilizer of a coset \(aH\) is a conjugate of the subgroup \(H\):
+		    	  \[ G_{aH} = \{g \mid g(aH) = aH\} = aHa. \]
+			</p>
+			<p>
+			  More generally, for any group action, the stabilizers of elements in the same orbit are conjugate. If \(s' = gs\), then
+			  \[ G_{s'} = gG_{s}g^{-1}. \]
+		        </p>
+	        </li>
+	</ol>
+      </p>
+      <p>
+      We now show how the orbit and stabilizer of an element are related. Suppose \(s' = gs\). Then the map \(O_{s} \to G/G_{s}\) defined by
+      \[ s' = gs \mapsto gG_{s} \]
+      is a bijection. It is surjective since for any \(g \in G\), the element \(s' = gs\) is in \(O_{s}\). Now \(gG_{s} = hG_{s}\) if and only if \(h^{-1}g \in G_{s}\) if and only if \(gs = hs\), so the map is injective.
+      It follows that \(\vert O_{s} \vert = \vert G/G_{s} \vert\) for any \(s \in S\). This result is called the <strong>orbit-stabilizer theorem</strong>.
+      <p>
+      <p>
+        Recall the counting formula (using \(\vert G/H \vert\) instead of \([G \colon H]\)):
+	\[ \vert G \vert = \vert H \vert \vert G/H \vert .\]
+	Combining this with the previous result, we have a new counting formula. If \(S\) is a finite group on which a group \(G\) acts, then
+	\[ \vert G \vert = \vert G_{s} \vert \vert O_{s} \vert .\]
+      </p>
+
+    </div>
+  </body>
+</html>

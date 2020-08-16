@@ -16,3 +16,7 @@ def cosets():
 @app.route('/quotient.html')
 def quotient():
     return render_template('quotient.html')
+
+@app.route('/actions.html')
+def actions():
+    return render_template('actions.html')
