@@ -20,3 +20,7 @@ def quotient():
 @app.route('/actions.html')
 def actions():
     return render_template('actions.html')
+
+@app.route('/conjugation.html')
+def conjugation():
+    return render_template('conjugation.html')
