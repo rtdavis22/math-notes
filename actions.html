@@ -33,7 +33,7 @@
 		<li>The symmetric group \(S_{n}\) acts transitively on any set with \(n\) elements by permuting the elements of the set. The stabilizer of any element is isomorphic to the subgroup \(S_{n - 1}\).</li>
 		<li>
 			<p>Let \(M_{2}\) be the group of all isometries of the plane, the maps \(\mathbb{R}^{2} \to \mathbb{R}^{2}\) that preserve distances.</p>
-			<p>This group acts transitively on the set of points in the plane. The stabilizer of the origin is \(O(2)\), the orthogonal group in dimension \(2\).</p>
+			<p>This group acts transitively on the set of points in the plane. The stabilizer of the origin is \(O(2)\), the orthogonal group in dimension 2.</p>
 			<p>If \(S\) is the set of triangles in the plane, then the orbit of a given triangle is the set of triangles congruent to it. This is not a transitive action. The stabilizer of a given triangle is isomorphic to the dihedral group \(D_{3}\).</p>
 		</li>
 		<li>
@@ -63,10 +63,39 @@
 	\[ \vert G \vert = \vert G_{s} \vert \vert O_{s} \vert .\]
       </p>
       <p>
-        We can use this counting formula to classify the finite subgroups \(G\) of \(SO(3)\) that preserve the regular solids in \(\mathbb{R}^{3}\).
-	Euler's rotation theorem says that every \(g \in G\) is rotation around an axis.
-	<ol>
-	  <li>Let \(T\) be the group of rotational symmetries of the tetrahedron.</li>
+        Some applications of the counting formula:
+        <ol>
+	  <li>We said before that the action of \(S_{n}\) that permutes the elements of an \(n\)-element is transitive (so that \(\vert O_{s} \vert = n\)), and that the stabilizers are isomorphic to \(S_{n - 1}\), so \(\vert G_{s} \vert = \vert S_{n - 1} \vert \). Then \(\vert S_{n} \vert = \vert G_{s} \vert \vert O_{s} \vert = \vert S_{n - 1} \vert \cdot n\). </li>
+	  <li>
+	    <p>
+              We can use this counting formula to classify the finite subgroups \(G\) of \(SO(3)\) that preserve the regular solids in \(\mathbb{R}^{3}\).
+	      Euler's rotation theorem says that every \(g \in G\) is rotation around an axis. So we need to look for structure-preserving rotations.
+	    </p>
+	    <p>
+	    Let \(T\) be the group of rotational symmetries of the regular tetrahedron. Clearly \(T\) is some subgroup of \(S_{4}\), since the action of the group permutes the vertices. We first use this action to compute the order of \(T\).
+	    </p>
+	    <p>
+	      Take the line connecting any vertex with the center of the triangle on the opposite side. There are 3 rotations about this axis that preserve the vertex: the identity, rotation by \(\frac{2\pi}{3}\), and rotation by \(\frac{4\pi}{3}\). So the stabilizer of a vertex \(G_{v}\) has order 3. Since any vertex can be mapped to any other vertex, the action is transitive, so \( \vert O_{v} \vert = \#V = 4\). Then we have
+	      \[ \vert T \vert = 3 \cdot 4 = 12 . \]
+	    </p>
+	    <p>
+	      We could have also computed \(\vert T \vert\) by considering the actions on the edges and faces:
+              \[ \begin{aligned} \vert T \vert &= \vert G_{e} \vert \vert O_{e} \vert = 2 \cdot \#E = 2 \cdot 6 \\ &= \vert G_{f} \vert \vert O_{f} \vert = 3 \cdot \#F = 3 \cdot 4. \end{aligned} \]
+	    </p>
+	    <p>
+	      This group is actually \(A_{4}\), which is the only group of order 12. The 8 elements which represent rotations about a vertex are the permutations with order 3:
+	      \[ (234), (243), (134), (143), (124), (142), (123) \textrm{, and } (132). \]
+              Taking the axes through pairs of opposite edges and rotating by \(\pi\) gives the permutations of order 2:
+	      \[ (12)(34), (13)(24) \textrm{, and } (14)(23). \]
+	      Along with the identity, this accounts for all 12 permutations.
+	    </p>
+	    <p>
+	      A similar process shows that the group which preserves the octahedron and the cube (its dual) has order 24. This group is \(S_{4}\): it permutes the 4 internal diagonals of the cube.
+	    </p>
+	    <p>
+	      Also the group which preserves the icosahedron and dodecahedron (its dual) has order 60. This group is \(A_{5}\), but it's not obvious how to identify the permutations with their corresponding rotations.
+	    </p>
+	  </li>
 	</ol>
       </p>
     </div>
