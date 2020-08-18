@@ -24,3 +24,7 @@ def actions():
 @app.route('/conjugation.html')
 def conjugation():
     return render_template('conjugation.html')
+
+@app.route('/sylow.html')
+def sylow():
+    return render_template('sylow.html')
