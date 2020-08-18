@@ -25,8 +25,13 @@
         Note that \(O_{e} = C(e) = \{e\}\). In other words, nothing except the identity can be conjugated into the identity. This is also true for all other elements in the center of \(G\).
       </p>
       <p>
+      Elements in the same conjugacy class have the same order. If \(g' = hgh^{-1}\) and \(g\) has order \(k\), then
+      \[ (g')^{k} = (hgh^{-1})^{k} = hg^{k}h^{-1} = hh^{-1} = e, \]
+      so \(\vert g' \vert \le \vert g \vert\). Similarly, \(\vert g \vert \le \vert g' \vert\).
+      </p>
+      <p>
         The counting formula tells us that for all \(s \in G\),
-	\[ \vert G \vert = \vert Z(s) \vert \cdot \vert C(s) \vert . \]
+	\[ \vert G \vert = \vert Z(s) \vert \vert C(s) \vert . \]
 	It follows that the order of every conjugacy class divides the order of the group.
       </p>
       <p>
@@ -53,6 +58,18 @@
 	    </p>
 	  </li>
 	  <li>
+            <p>
+	    In the previous section, we said that the rotation group which preserves the regular dodecahedron is \(A_{5)\), which has order 60. The elements of this group can be classified as follows:
+	      <ul>
+	        <li>the identity</li>
+		<li>the 24 non-trivial elements which stabilize the 6 pairs of opposite faces, which have order 5</li>
+		<li>the 15 non-trivial elements which stabilize the 15 pairs of opposite edges, which have order 2</li>
+		<li>the 20 non-trivial elements which stabilize the 20 pairs of opposite vertices, which have order 3</li>
+	      </ul>
+	      ...
+	    </p>
+          </li>
+	  <li>
 	    <p>
 	      Any group of prime power order has a non-trivial center.
 	    </p>
@@ -70,6 +87,9 @@
 	    <p>
 	      Now suppose the order of \(Z\) is \(p\), and take any element \(x\) not in \(Z\). The centralizer \(Z(x)\) contains \(x\) as well as \(Z\), so its order is strictly larger than \(p\). Since the order of \(Z(x)\) must divide \(p^{2}\), we must have \(Z(x) = G\). But this implies that \(x\) is in the center, which is a contradiction.
 	    </p>
+	  </li>
+	  <li>
+	    <p>conjugation in the symmetric group...</p>
 	  </li>
 	</ol>
       </p>
