@@ -32,3 +32,7 @@ def sylow():
 @app.route('/rings.html')
 def rings():
     return render_template('rings.html')
+
+@app.route('/ideals.html')
+def ideals():
+    return render_template('ideals.html')
