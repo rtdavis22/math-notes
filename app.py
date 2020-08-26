@@ -28,3 +28,7 @@ def conjugation():
 @app.route('/sylow.html')
 def sylow():
     return render_template('sylow.html')
+
+@app.route('/rings.html')
+def rings():
+    return render_template('rings.html')
