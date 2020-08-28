@@ -36,6 +36,10 @@
       </p>
       <p>
         A <strong>subring</strong> of a ring \(R\) is a subset of \(R\) that is itself a ring when addition and multiplication in \(R\) are restricted to the subset, and which shares the same multiplicative identity as \(R\).
+      </p>
+      <p>
+        A <strong>unit</strong> of a ring \(R\) is an element that has a multiplicative inverse. These elements form a group under multiplication called the <strong>unit group</strong> of \(R\), denoted \(R^{\times}\).
+      </p>
       <p>
         Examples of rings:
 	<ol>
@@ -43,10 +47,10 @@
 	    <p>The complex numbers \(\mathbb{C}\) form a ring, with subrings \(\mathbb{R}\), \(\mathbb{Q}\), and \(\mathbb{Z}\).</p>
 	  </li>
 	  <li>
-	    <p>The Gaussian integers \(\mathbb{Z} + \mathbb{Z}i\) form a ring which is also a subring of \(\mathbb{C}\).</p>
+	    <p>The Gaussian integers \(\mathbb{Z} + \mathbb{Z}i\) form a ring which is also a subring of \(\mathbb{C}\). Its unit group is \(\langle \pm 1, \pm i \rangle\).</p>
 	  </li>
 	  <li>
-	    <p>\(\mathbb{Z}/n\mathbb{Z}\) is a ring for any \(n > 0\).</p>
+	    <p>\(\mathbb{Z}/n\mathbb{Z}\) is a ring for any \(n > 0\). Its unit group has \(\varphi(n)\) elements, where \(\varphi\) is Euler's totient function.</p>
 	  </li>
 	  <li>
 	    <p>
@@ -59,7 +63,7 @@
 	    <p>The <strong>zero ring</strong> is the ring that only contains the element 0. This is the only ring in which \(1 = 0\).</p>
 	  </li>
 	  <li>
-	    <p>A field is a ring in which every element has a multiplicative inverse.</p>
+	    <p>A field is a ring in which every nonzero element has a multiplicative inverse. That is, \(F^{\times} = F - \{0\}\).</p>
 	  </li>
 	  <li>
 	    <p>
@@ -76,7 +80,7 @@
   		  The multiplicative identity is the identity homomorphism \(1(a) = a\).
 	        </li>
 	      </ul>
-	      The elements which have multiplicative inverses are the isomorphisms.
+	      The units of an endomorphism ring are the isomorphisms.
 	    </p>
 	    <p>
 	      The zero ring is the endomorphism ring of the zero group.
@@ -84,6 +88,9 @@
 	    <p>
 	      The ring of integers \(\mathbb{Z}\) is the endomorphism ring of the group \(\mathbb{Z}\) under addition. Any homomorphism \(f \colon \mathbb{Z} \to \mathbb{Z}\) is completely determined by the integer \(f(1)\), and we can bijectively identify homomorphisms with integers in this way.
 	    </p>
+	  </li>
+	  <li>
+	    <p>The set of matrices with dimension \(n\) over a field \(F\), \(M_n(F)\), is a non-commutative ring with unit group \(GL_n(F)\).</p>
 	  </li>
         </ol>
       </p>
