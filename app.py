@@ -36,3 +36,7 @@ def rings():
 @app.route('/ideals.html')
 def ideals():
     return render_template('ideals.html')
+
+@app.route('/quotient-rings.html')
+def quotient_rings():
+    return render_template('quotient-rings.html')
