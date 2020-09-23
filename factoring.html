@@ -13,21 +13,46 @@
       The <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">Fundamental Theorem of Arithmetic</a> says that every positive integer can be written uniquely as the product of primes. We'd like to ask when something similar is true for other rings. We will introduce three classes of rings, each contained in the next: rings with a division-and-remainder algorithm (Euclidean Domains), rings in which every ideal is principal (Principal Ideal Domains), and rings with unique factorization into primes (Unique Factorization Domains).
       </p>
       <p>
-        An integral domain \(R\) is a <strong>Euclidean Domain</strong> if 
+        An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) < \sigma(a)\).
       </p>
       <p>
         Some examples of Euclidean Domains:
 	<ol>
-	  <li><p>integers...</p></li>
-	  <li><p>polynomials over a field...</p></li>
-	  <li><p>Gaussian integers...</p></li>
+	  <li><p>The integers \(\mathbb{Z}\) are a Euclidean domain with size function \(\sigma(a) = \vert a \vert\).</p></li>
+	  <li><p>A polynomial ring \(F[x]\) in one variable over a field \(F\) is a Euclidean domain with \(\sigma(f) = \textrm{degree of } f\).</p></li>
+	  <li>
+	    <p>
+	      The Gaussian integers \(Z[i]\) are a Euclidean domain with \(\sigma(z) = \vert z \vert ^{2}\).
+	      <br />
+	      <i>Proof:</i>[in notes]
+	    </p>
+	  </li>
 	</ol>
       </p>
       <p>
-        Euclidean Domains are <strong>Principal Ideal Domains</strong>, rings in which every ideal is principal. ...
+        A Euclidean Domain \(R\) is a <strong>Principal Ideal Domain</strong> (or PID), a ring in which every ideal is principal.
+	<br />
+	<i>Proof:</i> [todo]
       </p>
       <p>
-        gcd...
+        A greatest common divisor (or gcd) of elements \(a\) and \(b\) in a ring is a nonzero element \(d\) with
+	<ul>
+	  <li>\(d \mid a\) and \(d \mid b\)</li>
+	  <li>if \(d' \mid a\) and \(d' \mid b\), then \(d' \mid d\).</li>
+	</ul>
+      </p>
+      <p>
+        Given an ideal \((a, b)\) in a PID, let \(d\) be a generator such that \((d) = (a, b)\). Then
+	<ol>
+	  <li>\(d\) is the gcd of \(a\) and \(b\)</li>
+	  <li>\(d\) can be written as a linear combination of \(a\) and \(b\): there are elements \(x\) and \(y\) in \(R\) with \(d = ax + by\)</li>
+	  <li>\(d\) is unique up the multiplication by a unit of \(R\)</li>
+	</ol>
+	<i>Proof:</i> <strong>(1)</strong> Since \((a) \subset (d)\), \(a \in (d)\) and so \(d \mid a\). Similarly, \(d \mid b\). If \(d' \mid a\) and \(d' \mid b\), then \(a \in (d')\) and \(b \in (d')\) and therefore \((d) = (a,b) \subset (d')\). It follows that \(d \in (d')\) and \(d' \mid d\).
+	<br />
+	<strong>(2)</strong> This follows from the statement that \((d) = (a,b)\).
+	<br />
+	<strong>(3)</strong> [todo]
       </p>
     </div>
   </body>
