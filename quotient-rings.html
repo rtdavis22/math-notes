@@ -12,7 +12,7 @@
       <p>
         Let \(I\) be an ideal of a ring \(R\). Since \(R\) is an additive group and \(I\) is a normal subgroup, the set of cosets \(R/I\) is a group under addition. We can define a ring structure on \(R/I\) by defining multiplication as
 	\[ (a + I)(b + I) = ab + I, \]
-	where \(0 + I = I\) is the multiplicative identity.
+	where \(0 + I = I\) is the additive identity and \(1 + I\) is the multiplicative identity.
       </p>
       <p>
         This multiplication is well-defined. If \(a + i \in a + I\) and \(b + j \in b + I\), then
@@ -26,7 +26,7 @@
       And given a ring homomorphism \(f \colon R \to R'\), we have \(R/\textrm{ker }f \simeq \textrm{im }f\). This is called the <strong>first isomorphism theorem</strong> for rings and can be proved using the same mapping \(\bar{f} \colon R/\textrm{ker }f \to \textrm{im }f\) that was used to prove the first isomorphism theorem for groups, under which \(f = \bar{f} \circ \pi\).
       </p>
       <p>
-        Correspondence Thm?
+        Correspondence Thm? Needed for first example
       </p>
       <ol>
 	<li>
@@ -36,7 +36,15 @@
 	  <p>The ring homomorphism \(\mathbb{R}[x] \to \mathbb{R}\) defined by evaluation at 0 has kernel \((x)\) and is surjective. So \(\mathbb{R}[x]/(x) \simeq \mathbb{R}\).</p>
 	</li>
 	<li>
-	  <p>stuff from tao's Notes 0 on complex analysis</p>
+	  <p>
+	    The complex numbers \(\mathbb{C}\) can be defined as the quotient \(\mathbb{R}[x]/(x^2 + 1)\). Each real number \(a\) is identified with the coset \(a + (x^2 + 1)\) and \(i\) is defined to be the coset \(x + (x^2 + 1)\). From this definition it's clear that \(i^2 + 1 = 0\).
+	  </p>
+	  <p>
+	    In general... (talk about relations)
+	  </p>
+	</li>
+	<li>
+	  Dual numbers? See Terry Tao's Notes 0
 	</li>
       </ol>
     </div>
