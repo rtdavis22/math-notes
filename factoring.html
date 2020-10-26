@@ -71,7 +71,7 @@
 	    A nonzero element \(p\) is a <strong>prime</strong> if \(p\) is not a unit and whenever \(p\) divides a product \(ab\), then \(p \mid a\) or \(p \mid b\). Equivalently, if \(ab \in (p)\), then \(a \in (p)\) or \(b \in (p)\).
             <br />
 	    <br />
-	    This is equivalent to \(R/(p)\) being an integral domain. If \(p\) is prime and \((a + (p))(b + (p)) = 0\), then \(ab + (p) = 0\), or \(p \mid ab\). Since \(p\) is prime, we know that \(p \mid a\) or \(p \mid b\) and hence \(a + (p) = 0\) or \(b + (p) = 0\). The other direction is proved similarly.
+	    An element \(p\) is prime in \(R\) if and only if \(R/(p)\) is an integral domain. If \(p\) is prime and \((a + (p))(b + (p)) = 0\), then \(ab + (p) = 0\), or \(p \mid ab\). Since \(p\) is prime, we know that \(p \mid a\) or \(p \mid b\) and hence \(a + (p) = 0\) or \(b + (p) = 0\). The other direction is proved similarly.
 	  </li>
 	</ul>
       </p>
@@ -90,7 +90,9 @@
       It follows from the second claim that \(p\) is an irreducible element in a PID \(R\) if and only if \(R/(p)\) is a field. If \(p\) is an irreducible element and \(R/(p)\) is not a field, then \(R\) must not be a PID. For example, \(x\) is irreducible in \(\mathbb{Z}[x]\) and \(\mathbb{Z}[x]/(x)\) is not a field (it's isomorphic to \(\mathbb{Z}\)), so there must be non-principal ideals in \(\mathbb{Z}[x]\). In fact, the ideal \((2, x)\) is the kernel of the homomorphism \(\mathbb{Z}[x] \to \mathbb{Z}/2\mathbb{Z}\) mapping \(f(x) \mapsto f(0) \;(\bmod 2)\), and it is not the entire ring since it does not contain the constant polynomial 1.
       </p>
       <p>
-        Now, we are ready to define an analog to the Fundamental Theorem of Arithmetic. 
+      Now, we are ready to define an analog to the Fundamental Theorem of Arithmetic. A <strong>unique factorization domain</strong> is an integral domain \(R\) in which every non-zero element of \(R\) can be written as a product of irreducible elements \(p_i\) of \(R\) and a unit \(u\):
+      \[ x = up_1p_2 \dotsb p_n. \]
+      ...
       </p>
     </div>
   </body>
