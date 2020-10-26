@@ -1,11 +1,11 @@
 {
-  "name": "rtdavis22githubio",
+  "name": "robs-math-notes",
   "version": "0.1.0",
-  "description": "http://rtdavis22.github.io/",
+  "description": "https://robs-math-notes.herokuapp.com/",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rtdavis22/rtdavis22.github.io.git"
+    "url": "git+https://github.com/rtdavis22/math-notes.git"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
@@ -29,7 +29,7 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/rtdavis22/rtdavis22.github.io/issues"
+    "url": "https://github.com/rtdavis22/math-notes/issues"
   },
   "browserslist": {
     "production": [

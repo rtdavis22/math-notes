@@ -1,4 +1,4 @@
-http://rtdavis22.github.io/
+https://robs-math-notes.herokuapp.com/
 
 ### Build
 
@@ -8,10 +8,6 @@ npm install
 To start up development server
 npm start
 
-### Flask development
+### Deploy
 
-. venv/bin/activate
-
-export FLASK_APP=app.py
-
-flask run
+git push heroku master
