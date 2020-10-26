@@ -4,41 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="Rob's Math Notes" content="Some of my notes on math" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>React App</title>
+    <title>Math Notes</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <h2>Group Theory</h2>
+    <a href="%PUBLIC_URL%/notes/homomorphisms.html">Group Homomorphisms</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/cosets.html">The Coset Decomposition of a Group</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/quotient.html">Quotient Groups</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/actions.html">Group Actions</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/conjugation.html">Conjugation</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/sylow.html">The Sylow Theorems</a>
+
+    <h2>Ring Theory</h2>
+    <a href="%PUBLIC_URL%/notes/rings.html">Rings</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/ideals.html">Ring Homomorphisms and Ideals</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/quotient-rings.html">Quotient Rings</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/fractions.html">Fraction Fields</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/factoring.html">Factoring</a>
+    <br />
+    <a href="%PUBLIC_URL%/notes/gauss-lemma.html">Gauss's Lemma</a>
+
+    <h2>Galois Theory</h2>
+
+
+    <!-- Nothing is currently injected into this div -->
     <div style="margin-left:auto;margin-right:auto;width:40em" id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
