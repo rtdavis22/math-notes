@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Sequences</title>
+  </head>
+  <body>
+    <div style="margin-left:auto;margin-right:auto;width:40em">
+      <h3>Sequences</h3>
+      <p>
+        A sequence of real numbers \(a_n\) is a <strong>Cauchy sequence</strong> if for every \(\varepsilon > 0\), there is an \(N\) such that \(\vert a_n - a_{n'} \vert \leq \varepsilon\) for all \(n, n' \geq N\).
+      </p>
+      <p>
+      A sequence \(a_n\) <strong>converges</strong> to a real number \(L\) if for every \(\varepsilon > 0\), there is an \(N\) such that \(\vert a_n - L \vert \leq \varepsilon\) for every \(n \geq N\). It is not possible for a sequence to converge to two distinct real numbers. If \(a_n\) converges to \(L\), we say that the <strong>limit</strong> of \(a_n\) is \(L\) and write \(L = \lim_{n \to \infty} a_n\).
+      </p>
+      <p>
+        Convergent sequences are Cauchy.
+      </p>
+      <p>
+        A sequence \(a_n\) is <strong>bounded</strong> by a real number \(M\) if \(\vert a_n \vert < M\) for all \(n\). We say that a sequence is bounded if it is bounded by some \(M > 0\).
+      </p>
+      <p>
+        Convergent sequences are bounded.
+      </p>
+      <p>
+      Let \(x = \lim_{n \to \infty} a_n\) and \(y = \lim_{n \to \infty} b_n\). We have the following limit laws:
+	<ol>
+	  <li>\(\lim_{n \to \infty} (a_n + b_n) = x + y\).</li>
+	  <li>\(\lim_{n \to \infty} (a_nb_n) = xy\).</li>
+	  <li>For any real number \(c\), \(\lim_{n \to \infty} (ca_n) = cx\).</li>
+	  <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(\lim_{n \to \infty} b_n^{-1} = y^{-1}\).</li>
+	  <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(lim_{n \to \infty} \frac{a_n}{b_n} = \frac{x}{y}\).</li>
+	  <li>\(\lim_{n \to \infty} \textrm{max}(a_n, b_n) = \textrm{max}(x, y)\).</li>
+	  <li>\(\lim_{n \to \infty} \textrm{min}(a_n, b_n) = \textrm{min}(x, y)\).</li>
+	</ol>
+      </p>
+      <p>
+      An upper bound \(M\) of a set of real numbers \(E\) is called the <strong>supremum</strong> of \(E\) if any other upper bound \(M'\) of \(E\) is larger than \(M\). The supremum of a set \(E\) is denoted sup\((E)\). Similarly, the <strong>infimum</strong> of a set \(E\) is the greatest lower bound of \(E\) and can be defined by the formula \(\textrm{inf}(E) = -\textrm{sup}(-E)\). The supremum and infimum of a sequence \(a_n\) are the supremum and infimum of the set \(\{a_n\}\).
+      </p>
+      <p>
+        Monotone bounded sequences converge.
+      </p>
+      <p>
+        A real number \(x\) is a <strong>limit point</strong> of a sequence \(a_n\) if for every \(\varepsilon > 0\) and integer \(N\), there is an \(n \geq N\) such that \(\vert a_n - x \vert \leq \varepsilon\). For example, if the limit of a sequence exists, then it is a limit point.
+      </p>
+
+    </div>
+  </body>
+</html>
