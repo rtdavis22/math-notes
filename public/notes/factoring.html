@@ -12,6 +12,7 @@
       <p>
       The <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">Fundamental Theorem of Arithmetic</a> says that every positive integer can be written uniquely as the product of primes. We'd like to ask when something similar is true for other rings. We will introduce three classes of rings, each contained in the next: rings with a division-and-remainder algorithm (Euclidean Domains), rings in which every ideal is principal (Principal Ideal Domains), and rings with unique factorization into primes (Unique Factorization Domains).
       </p>
+      <p><strong>I.</strong></p>
       <p>
         An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) < \sigma(a)\).
       </p>
@@ -35,6 +36,7 @@
 	  </li>
 	</ol>
       </p>
+      <p><strong>II.</strong></p>
       <p>
         A Euclidean Domain \(R\) is a <strong>Principal Ideal Domain</strong> (or PID), a ring in which every ideal is principal.
 	<br />
@@ -62,6 +64,7 @@
 	<br />
 	<strong>(3)</strong> [todo]
       </p>
+      <p><strong>III.</strong></p>
       <p>
         To begin discussing factorization, we start with some definitions.
 	<ul>
@@ -94,8 +97,29 @@
       \[ x = up_1p_2 \dotsb p_n. \]
       ...
       </p>
+      <p><strong>IV.</strong></p>
       <p>
       We know that the Gaussian integers are a unique factorization domain since they are a Euclidean domain. This information isn't very useful unless we have an understanding of its primes and units. We investigate this below.
+      </p>
+      <p>
+        Let \(p\) be an integer prime. Then \(p\) is either a Gauss prime or the product \(\pi\bar{\pi}\) of a Gauss prime and its conjugate, and this accounts for all Gauss primes.
+	<br />
+	<i>Proof:</i> If \(p\) is an integer prime, it is not a unit in \(\mathbb{Z}[i]\) and so is divisible by a Gauss prime \(\pi\). Then \(\bar{\pi}\) divides \(\bar{p} = p\), and \(\pi\bar{\pi}\) divides \(p^2\). Therefore \(\pi\bar{\pi}\) is equal to \(p\) or \(p^2\). If \(\pi\bar{\pi} = p^2\), then \(\pi\) and \(p\) are associates, so \(p\) is a Gauss prime.
+	<br />
+	Furthermore, if \(\pi\) is any Gauss prime, then either \(\pi\bar{\pi}\) is an integer prime or \(\pi\) is an integer prime. Let \(\pi = a + bi\). Factor the positive integer \(\pi\bar{\pi} = a^2 + b^2\) in the ring of integers, and then factor in the integer primes in the Gaussian integers. Because the Gaussian integers have unique factorization, the Gaussian primes we obtain must be associates of \(\pi\) and \(\bar{\pi}\). Either \(\pi\bar{\pi}\) is an integer prime, or else it is the product of two integer primes. In the latter case, \(\pi\) must be an associate of one of the integer primes. (In fact, it must be an associate of both primes.)
+      </p>
+      <p>
+        An integer prime \(p\) is the product of conjugate Gaussian primes if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\).
+	<br />
+	<i>Proof:</i> First note that for any integer prime \(p\), \(p\) is the product of complex conjugate Gauss primes if and only if -1 is a square module \(p\):
+	\[ \begin{aligned} p = \pi\bar{\pi} & \Leftrightarrow \textrm{p is not a Gauss prime} \\ & \Leftrightarrow \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ & \Leftrightarrow \mathbb{F}_p[x]/(x^2 + 1) \simeq \mathbb{Z}[x]/(x^2 + 1, p) \simeq \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ & \Leftrightarrow x^2 + 1 \textrm{ is reducible in } \mathbb{F}_p[x] \\ & \Leftrightarrow x^2 + 1 = (x + q)(x - q) \textrm{ for some } q \in \mathbb{F}_p \\ & \Leftrightarrow q^2 = -1 \textrm{ in } \mathbb{F}_p. \end{aligned} \]
+      </p>
+      <p>
+        Now, we show that -1 is a square module \(p\) if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\). ...
+      </p>
+      <p>Note on Fermat's theorem...</p>
+      <p>
+        It follows that an integer prime \(p\) is a Gauss prime if and only if \(p \equiv 3 \;(\bmod 4)\).
       </p>
     </div>
   </body>
