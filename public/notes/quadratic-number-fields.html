@@ -64,6 +64,23 @@
 	  <li>If \(d = -3\), the units are the six powers of \(e^{2\pi i/6} = \frac{1}{2}(1 + \sqrt{-3})\).</li>
 	</ul>
       </p>
+      <p>
+        Factoring terminates in the ring of integers in an imaginary quadratic number field because factoring terminates in the integers: if \(\alpha = \beta\gamma\) is a proper factorization in \(R\), then \(N(\alpha) = N(\beta)N(\gamma)\) is a proper factorization in \(\mathbb{Z}\). However, \(R\) is usually not a unique factorization domain.
+      </p>
+      <p>
+        If \(d \equiv 3\) modulo 4, then \(R\) is not a unique factorization domain when \(d \lt -1\). In this case, the element \(1 - d\) can be factored in two ways:
+	\[ 1 - d = (1 + \sqrt{d})(1 - \sqrt{d}) = 2\cdot\frac{1 - d}{2}. \]
+	Note that 2 is an irreducible element. Otherwise there would exist an element in \(R\) whose norm is more than one and also divides 4, the norm of 2. But no element has norm 2 when \(d \lt -1\). The factorization cannot be unique since 2 does not divide \((1 + \sqrt{d})\) or \((1 - \sqrt{d})\): \(\frac{1}{2}(1 \pm \sqrt{d})\) is not an element of \(R\).
+      </p>
+      <p>
+      Similarly, when \(d \equiv 2\) modulo 4 and \(d \lt 2\), \(R\) does not have unique factorization because \(4 - d\) can be factored as \((2 - \sqrt{d})(2 + \sqrt{d})\) or \(2\cdot\frac{4-d}{2}\), where 2 is irreducible and does not divide \(2 \pm \sqrt{d}\).
+      </p>
+      <p>
+      This reasoning breaks down when \(d \equiv 1\) modulo 4, and in fact there are <a href="https://en.wikipedia.org/wiki/Stark%E2%80%93Heegner_theorem">several such imaginary quadratic fields</a> in which the ring of integers has unique factorization.
+      </p>
+      <p><strong>III.</strong></p>
+      <p>
+      </p>
     </div>
   </body>
 </html>

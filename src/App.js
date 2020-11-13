@@ -21,6 +21,8 @@ function App() {
   );
 
   var test2 = <span dangerouslySetInnerHTML={{__html: '$$ a_{ij} \\pi $$'}} />;
+
+  var test3 = <span>\(x_&#123;ij&#125; \lt 3\)</span>;
 */
   return null;
 }
