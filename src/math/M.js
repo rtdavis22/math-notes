@@ -1,12 +1,13 @@
 import React from 'react';
 
-class B extends React.Component {
+// autogenerate these classes?
+class b extends React.Component {
   render() {
     return ['{', this.props.children, '}'];
   }
 }
 
-class Sub extends React.Component {
+class sub extends React.Component {
   render() {
     return (
       <>
@@ -18,28 +19,37 @@ class Sub extends React.Component {
   }
 }
 
-class Sup extends React.Component {
+class sup extends React.Component {
   render() {
     return ['^{', this.props.children, '}'];
   }
 }
 
-class Frac extends React.Component {
+class frac extends React.Component {
   render() {
     return ['\\frac{', this.props.children[0], '}{', this.props.children[1], '}'];
   }
 }
 
-class Textrm extends React.Component {
+class mathbb extends React.Component {
+  render() {
+    return ['\\mathbb{', this.props.children, '}'];
+  }
+}
+
+class textrm extends React.Component {
   render() {
     return ['\\textrm{', this.props.children, '}'];
   }
 }
 
-export {
-  B,
-  Frac,
-  Sub,
-  Sup,
-  Textrm,
+var m = {
+  b,
+  frac,
+  mathbb,
+  sub,
+  sup,
+  textrm,
 }
+
+export default m;
