@@ -15,7 +15,7 @@
       <p>
 	The following properties follow:
 	<ol>
-		<li>\(f(e) = f(e')\)</li>
+		<li>\(f(e) = e'\)</li>
 		<li>\(f(g^{-1}) = f(g)^{-1}\)</li>
 	</ol>
       </p>
@@ -83,7 +83,7 @@
 	    </p>
 	    <p>
 	      Now, we verify that \(f\) is a homomorphism:
-	      \[ \begin{aligned} f(gg')(h) &= (gg')h(gg')^{-1} \\ &= gg'h(g')^{-1}g^{-1} \\ &= f(g)(g'h(g')^{-1}) \\ &= f(g)(f(g')(h)) \\ &= f(g) \circ f(g')(h).  \end{aligned} \]
+	      \[ \begin{aligned} f(gg')(h) &= (gg')h(gg')^{-1} \\ &= gg'h(g')^{-1}g^{-1} \\ &= f(g)(g'h(g')^{-1}) \\ &= f(g)(f(g')(h)) \\ &= (f(g) \circ f(g'))(h).  \end{aligned} \]
 	    </p>
 	    <p>
 	      The kernel of \(f\) are the elements of \(G\) that give the identity automorphism. In other words,
@@ -95,7 +95,7 @@
 	    </p>
 	    <p>
 	    In fact, \(\textrm{Inn }G\) is a normal subgroup of \(\textrm{Aut }G\). Assume \(a \in \textrm{Inn }G\) is defined as conjugation by \(g\). Then conjugation of \(a\) by \(b \in \textrm{Aut }G\) gives the automorphism defined as conjugation by \(b(g)\):
-	      \[ \begin{aligned} b \circ a \circ b^{-1}(h) &= b(a(b^{-1}(h))) \\ &= b(gb^{-1}(h)g^{-1}) \\ &= b(g)(b \circ b^{-1})(h)b(g^{-1}) \\ &= b(g)hb(g)^{-1}.  \end{aligned} \]
+	      \[ \begin{aligned} (b \circ a \circ b^{-1})(h) &= b(a(b^{-1}(h))) \\ &= b(gb^{-1}(h)g^{-1}) \\ &= b(g)(b \circ b^{-1})(h)b(g^{-1}) \\ &= b(g)hb(g)^{-1}.  \end{aligned} \]
 	    </p>
 	  </li>
 	</ol>
