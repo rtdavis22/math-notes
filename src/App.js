@@ -1,5 +1,5 @@
 import './App.css';
-import m from './math/M.js';
+import m from './math/Math.js';
 import FractionFields from './FractionFields.js';
 
 
@@ -37,14 +37,11 @@ function App() {
       <FractionFields />
     </div>
 */
-/*
   return (
     <div>
       <FractionFields />
     </div>
   );
-*/
-  return null;
 }
 
 export default App;

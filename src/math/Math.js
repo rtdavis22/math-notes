@@ -1,7 +1,6 @@
 import React from 'react';
 
-// autogenerate these classes?
-class b extends React.Component {
+class Brace extends React.Component {
   render() {
     return ['{', this.props.children, '}'];
   }
@@ -43,8 +42,7 @@ class textrm extends React.Component {
   }
 }
 
-var m = {
-  b,
+var Math = {
   frac,
   mathbb,
   sub,
@@ -52,4 +50,7 @@ var m = {
   textrm,
 }
 
-export default m;
+export {
+  Brace,
+  Math,
+};
