@@ -36,12 +36,14 @@ function App() {
       <p>\(\frac<m.b>i + 2</m.b><m.b>i - 2</m.b>\)</p>
       <FractionFields />
     </div>
-*/
+
   return (
     <div>
       <FractionFields />
     </div>
   );
+*/
+  return null;
 }
 
 export default App;

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Fields</title>
+  </head>
+  <body>
+    <div style="margin-left:auto;margin-right:auto;width:40em">
+      <h3>Fields</h3>
+      <p>
+        A <strong>field extension</strong> \(K\) of a field \(F\), denoted \(K / F\), is a field \(F\) contained in \(K\).
+	An element \(\alpha\) of \(K\) is <em>algebraic over</em> \(F\) if it is a root of a monic polynomial with coefficients in \(F\).
+	If \(\alpha\) is not algebraic over \(F\), it is called <em>transcendental over</em> \(F\).
+      </p>
+      <p>
+        In other words, \(\alpha\) is algebraic over \(F\) if the substitution homomorphism \(\varphi \colon F[x] \to K\) is non-injective and transcendental over \(F\) if \(\varphi\) is injective.
+	If \(\varphi\) is non-injective, then the unique monic polynomial generating the kernel is called the <em>irreducible polynomial for \(\alpha\) over \(F\)</em>.
+	The degree of this polynomial is called the <em>degree of \(\alpha\) over \(F\)</em>.
+      </p>
+      <p>
+        For example, the irreducible polynomial for \(\sqrt i\) over \(\mathbb{Q}\) is \(x^4 + 1\), and the irreducible polynomial for \(\sqrt i\) over \(\mathbb{Q}(i)\) is \(x^2 - i\).
+      </p>
+      <p>
+        Let \(K\) be an extension field of \(F\). Denote the smallest subfield of \(K\) that contains \(\alpha \in K\) as \(F(\alpha)\).
+	This field is isomorphic to the field of fractions of \(F[\alpha]\), the image of the substitution map \(\varphi \colon F[x] \to K\).
+      </p>
+      <p>
+        If \(\alpha \in K\) is transcendental over \(F\), the map \(F[x] \to F[\alpha]\) is an isomorphism. In this case \(F(\alpha)\) is isomorphic to the field \(F(x)\) of rational functions.
+	The field extensions \(F(\alpha)\) are isomorphic for all transcendental elements \(\alpha\).
+      </p>
+      <p>
+        Now let \(\alpha\) be an element of an extension field \(K / F\) which is algebraic over \(F\), and let \(f\) be the irreducible polynomial for \(\alpha\) over \(F\).
+	Since the ideal \((f)\) is maximal, \(f(x)\) generates the kernel of the substitution map \(\varphi \colon F[x] \to K\), so \(F[x]\) is isomorphic to the image of \(\varphi\), which is \(F[\alpha]\).
+	Since \(F[x]/(f)\) is a field, \(F[x]\) is a field. Thus \(F(\alpha)\) is equal to \(F[\alpha]\).
+      </p>
+    </div>
+  </body>
+</html>
