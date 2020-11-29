@@ -9,8 +9,9 @@
   <body>
     <div style="margin-left:auto;margin-right:auto;width:40em">
       <h3>Fields</h3>
+      <p><strong>I.</strong></p>
       <p>
-        A <strong>field extension</strong> \(K\) of a field \(F\), denoted \(K / F\), is a field \(F\) contained in \(K\).
+        A <strong>field extension</strong> \(K\) of a field \(F\), denoted \(K / F\), is a field \(K\) which contains \(F\).
 	An element \(\alpha\) of \(K\) is <em>algebraic over</em> \(F\) if it is a root of a monic polynomial with coefficients in \(F\).
 	If \(\alpha\) is not algebraic over \(F\), it is called <em>transcendental over</em> \(F\).
       </p>
@@ -35,6 +36,37 @@
 	Since the ideal \((f)\) is maximal, \(f(x)\) generates the kernel of the substitution map \(\varphi \colon F[x] \to K\), so \(F[x]\) is isomorphic to the image of \(\varphi\), which is \(F[\alpha]\).
 	Since \(F[x]/(f)\) is a field, \(F[x]\) is a field. Thus \(F(\alpha)\) is equal to \(F[\alpha]\).
       </p>
+      <p>
+        If an algebraic element \(\alpha\) has degree \(n\) over \(F\), then \((1, \alpha, \ldots, \alpha^{n-1})\) is a basis for \(F(\alpha)\) as a vector space over \(F\).
+	<br />
+	<i>Proof:</i> [fill this in]
+      </p>
+      <p>
+        For example, the irreducible polynomial for \(\omega = e^{2\pi i/3}\) over \(\mathbb{Q}\) is \(x^2 + x + 1\), and \((1, \omega)\) is a basis for \(\mathbb{Q}(\omega)\) over \(\mathbb{Q}\).
+      </p>
+      <p>
+        From this it follows that a necessary conditions for algebraic elements \(\alpha\) and \(\beta\) to generate the same field extension is that they must have the same degree over \(F\).
+      </p>
+      <p>
+        Let \(F\) be a field and let \(\alpha\) and \(\beta\) be elements of field extensions \(K/F\) and \(L/F\). Suppose that \(\alpha\) and \(\beta\) are algebraic over \(F\).
+	There is an isomorphism of fields \(\sigma \colon F(\alpha) \to F(\beta)\) that is the identity on \(F\) and that sends \(\alpha\) to \(\beta\) if and only if the irreducible polynomials for \(\alpha\) and \(\beta\) over \(F\) are equal.
+        <br />
+        <i>Proof:</i> [fill this in]
+      </p>
+      <p>
+        For example...
+      </p>
+      <p>
+        Let \(K\) and \(K'\) be extensions of the same field \(F\). An isomorphism \(\varphi \colon K \to K'\) that restricts to the identity on the subfield \(F\) is called an <em>\(F\)-isomorphism</em>, or an <em>isomorphism of extensions fields</em>.
+      </p>
+      <p>
+        Let \(\varphi \colon K \to K'\) be an isomorphism of field extensions of \(F\), and let \(f\) be a polynomial with coefficients in \(F\).
+	Let \(\alpha\) be a root of \(f\) in \(K\), and let \(\alpha' = \varphi(\alpha)\) be its image in \(K'\).
+	Then \(\alpha'\) is also a root of \(f\).
+	<br />
+	<i>Proof:</i> [fill this in]
+      </p>
+      <p><strong>II.</strong></p>
     </div>
   </body>
 </html>
