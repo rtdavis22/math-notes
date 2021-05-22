@@ -1,0 +1,55 @@
+p,li,span {
+  line-height: 1.6;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 0.3em 0 !important;
+}
+
+ol,ul {
+  margin: 0.3em  0;
+}
+
+hr {
+  margin: 2em 0;
+}
+
+div.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40em;
+}
+
+div.section {
+  margin-top:5em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+p.square {
+  position:absolute;
+  right:0px;
+  bottom:-9px;
+}
+
+div.proof {
+  position:relative;
+}
+
+span.result {
+  margin-right: 0.5em;
+  font-weight:bold;
+}
+
+span.result span.name {
+  font-weight:normal;
+}
+
+div.proof span.proof {
+  font-style: italic;
+  margin-right: 1em;
+}

@@ -5,39 +5,93 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Factorization of Integer Polynomials</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
   <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <h3>Factorization of Integer Polynomials</h3>
+    <div class="wrapper">
+      <h1>Factorization of Integer Polynomials</h1>
       <p>
-      We know the \(\mathbb{Z}[x]\) is not a principal ideal domain, but it turns out that it is still a unique factorization domain. In fact, if \(R\) is any domain with unique factorization, then so is \(R[x]\). We prove that \(\mathbb{Z}[x]\) has unique factorization below.
+        We know that \(\mathbb{Z}[x]\) is not a principal ideal domain, but it turns out that it is still a unique factorization domain.
+        In fact, if \(R\) is any domain with unique factorization, then so is \(R[x]\).
+        We prove that \(\mathbb{Z}[x]\) has unique factorization below.
       </p>
       <p>
-      A <em>primitive</em> polynomial is defined to be a polynomial with integer coefficients, where the greatest common divisor of the coefficients is 1 and the leading coefficient is positive. Every polynomial \(f(x)\) of positive degree with rational coefficients can be written uniquely as a product \(f(x) = cf_0(x)\), where \(c \in \mathbb{Q}^\times\) (called the <em>content</em>) and \(f_0(x)\) is a primitive polynomial. Moreover, \(c\) is an integer if and only if \(f(x)\) is an integer polynomial.
+        A <em>primitive</em> polynomial is defined to be a polynomial with integer coefficients,
+        where the greatest common divisor of the coefficients is 1 and the leading coefficient is positive.
+        Every polynomial \(f(x)\) of positive degree with rational coefficients can be written uniquely as a product \(f(x) = cf_0(x)\),
+        where \(c \in \mathbb{Q}^\times\) (called the <em>content</em>) and \(f_0(x)\) is a primitive polynomial.
+        Moreover, \(c\) is an integer if and only if \(f(x)\) is an integer polynomial.
       </p>
       <p>
-        Gauss's Lemma says that the product of primitive polynomials is primitive.
-        <br />
-        <i>Proof:</i> Suppose that a prime \(p\) divides \(f_0(x)g_0(x)\), where \(f_0(x)\) and \(g_0(x)\) are primitive. That is, \(p\) divides all coefficients of \(f_0(x)g_0(x)\). Consider the homomorphism \(\psi_p \colon \mathbb{Z}[x] \to \mathbb{F}_p[x]\) mapping polynomials in \(\mathbb{Z}[x]\) to polynomials with coefficients reduced modulo \(p\). Since \(\mathbb{F}_p[x]\) is an integral domain, \(\psi_p(f_0)\) or \(\psi_p(g_0)\) must be 0. This implies that \(p\) divides \(f_0\) or \(g_0\), which is a contradiction.
+        <span class="result">
+          Lemma
+          <span class="name">(Gauss's Lemma)</span><span>.</span>
+        </span>
+        The product of primitive polynomials is primitive.
+      </p>
+      <div class="proof">
+	      <span class="proof">Proof.</span>
+        <span>
+          Suppose that a prime \(p\) divides \(f_0(x)g_0(x)\), where \(f_0(x)\) and \(g_0(x)\) are primitive. That is, \(p\) divides all coefficients of \(f_0(x)g_0(x)\).
+          Consider the homomorphism \(\psi_p \colon \mathbb{Z}[x] \to \mathbb{F}_p[x]\) mapping polynomials in \(\mathbb{Z}[x]\) to polynomials with coefficients reduced modulo \(p\).
+          Since \(\mathbb{F}_p[x]\) is an integral domain, \(\psi_p(f_0)\) or \(\psi_p(g_0)\) must be 0.
+          This implies that \(p\) divides \(f_0\) or \(g_0\), which is a contradiction.
+        </span>
+	      <p class="square">\(\square\)</p>
+      </div>
+      <p>
+        Since \(\mathbb{Q}\) is a field, \(\mathbb{Q}[x]\) is a unique factorization domain.
+        So \(f(x) \in \mathbb{Q}[x]\) can be written uniquely as \(f(x) = cp_1(x) \dotsb p_k(x)\), where \(p_1, \dotsc, p_k\) are monic irreducible polynomials.
+        Write each of these irreducible polynomials as the product of a content and a primitive polynomial:
+	      \[
+          \begin{aligned} f(x) = cp_1(x) \dotsb p_k(x) &= cc_1q_1(x) \dotsb c_kq_k(x) \\
+          &= cc_1 \dotsb c_kq_1(x) \dotsb q_k(x) \\ &= dq_1(x) \dotsb q_k(x) , \end{aligned}
+        \]
+	      where \(q_1, \dotsc, q_k\) are primitive and irreducible and \(d \in \mathbb{Q}^\times\).
+        (They are irreducible because they are multiples of irreducible polynomials.)
+        For example, if \(p_1(x) = x + \frac{1}{2}\), then \(c_1 = \frac{1}{2}\) and \(q_1(x) = 2x + 1\).
       </p>
       <p>
-        Since \(\mathbb{Q}\) is a field, \(\mathbb{Q}[x]\) is a unique factorization domain. So \(f(x) \in \mathbb{Q}[x]\) can be written uniquely as \(f(x) = cp_1(x) \dotsb p_k(x)\), where \(p_1, \dotsc, p_k\) are monic irreducible polynomials. Write each of these irreducible polynomials as the product of a content and a primitive polynomial:
-	\[ \begin{aligned} f(x) = cp_1(x) \dotsb p_k(x) &= cc_1q_1(x) \dotsb c_kq_k(x) \\  &= cc_1 \dotsb c_kq_1(x) \dotsb q_k(x) \\ &= dq_1(x) \dotsb q_k(x) , \end{aligned}\]
-	where \(q_1, \dotsc, q_k\) are primitive and irreducible and \(d \in \mathbb{Q}^\times\). (They are irreducible because they are multiples of irreducible polynomials.) For example, if \(p_1(x) = x + \frac{1}{2}\), then \(c_1 = \frac{1}{2}\) and \(q_1(x) = 2x + 1\).
+        Applying Gauss's Lemma, we find that \(q_1(x) \dotsb q_k(x)\) is primitive.
+        This implies that \(d = cc_1 \dotsb c_k\) is an integer if \(f(x)\) is an integer polynomial.
+        Thus a factorization of an integer polynomial \(f(x)\) can be given as \(f(x) = p_1 \dotsb p_l \cdot q_1(x) \dotsb q_k(x)\),
+        where \(p_1 \dotsb p_l\) is the prime factorization of \(d\) and \(q_1, \dotsc, q_k\) are irreducible in \(\mathbb{Z}[x]\).
+        A little more work shows that this factorization is unique and hence that \(\mathbb{Z}[x]\) is a unique factorization domain.
       </p>
       <p>
-      Applying Gauss's Lemma, we find that \(q_1(x) \dotsb q_k(x)\) is primitive. This implies that \(d = cc_1 \dotsb c_k\) is an integer if \(f(x)\) is an integer polynomial. Thus a factorization of an integer polynomial \(f(x)\) can be given as \(f(x) = p_1 \dotsb p_l \cdot q_1(x) \dotsb q_k(x)\), where \(p_1 \dotsb p_l\) is the prime factorization of \(d\) and \(q_1, \dotsc, q_k\) are irreducible in \(\mathbb{Z}[x]\). A little more work shows that this factorization is unique and hence that \(\mathbb{Z}[x]\) is a unique factorization domain.
+        The homomorphism \(\psi_p\) exhibited previously is also useful for determining if an integer polynomial is irreducible, as the following result shows.
       </p>
       <p>
-        The homomorphism \(\psi_p\) exhibited previously is also useful for determining if an integer polynomial is irreducible. Let \(f(x)\) be an integer polynomial and \(p\) be a prime which doesn't divide its leading coefficient. If \(\psi_p(f)\) is irreducible in \(\mathbb{F}_p[x]\), then \(f\) is irreducible in \(\mathbb{Z}[x]\).
-	<br />
-	<i>Proof:</i> We prove the contrapositive: if \(f\) is reducible, then \(\psi_p(f)\) is reducible. Let \(f = gh\), where \(g\) and \(h\) have positive degree, and let \(p\) be a prime that doesn't divide the leading coefficient of \(f\). We have \(\textrm{deg }f = \textrm{deg }g + \textrm{deg }h\) and \(\textrm{deg }f = \textrm{deg }\psi_p(f)\). Since \(\psi_p\) is a homomorphism, \(\psi_p(f) = \psi_p(g)\psi_p(h)\), so \(\textrm{deg }\psi_p(f) = \textrm{deg }\psi_p(g) + \textrm{deg }\psi_p(h)\). Since the degree of the image of a polynomial under \(\psi_p\) is at most the degree of the polynomial, we must have \(\textrm{deg }\psi_p(g) = \textrm{deg }g\) and \(\textrm{deg }\psi_p(h) = \textrm{deg }h\). This shows that \(\psi_p(f)\) is reducible.
+        <span class="result">Proposition.</span>
+        Let \(f(x)\) be an integer polynomial and \(p\) be a prime which doesn't divide its leading coefficient.
+        If \(\psi_p(f)\) is irreducible in \(\mathbb{F}_p[x]\), then \(f\) is irreducible in \(\mathbb{Z}[x]\).
+      </p>
+      <div class="proof">
+	      <span class="proof">Proof.</span>
+        <span>
+          We prove the contrapositive: if \(f\) is reducible, then \(\psi_p(f)\) is reducible.
+          Let \(f = gh\), where \(g\) and \(h\) have positive degree, and let \(p\) be a prime that doesn't divide the leading coefficient of \(f\).
+          We have \(\textrm{deg }f = \textrm{deg }g + \textrm{deg }h\) and \(\textrm{deg }f = \textrm{deg }\psi_p(f)\).
+          Since \(\psi_p\) is a homomorphism, \(\psi_p(f) = \psi_p(g)\psi_p(h)\), so \(\textrm{deg }\psi_p(f) = \textrm{deg }\psi_p(g) + \textrm{deg }\psi_p(h)\).
+          Since the degree of the image of a polynomial under \(\psi_p\) is at most the degree of the polynomial,
+          we must have \(\textrm{deg }\psi_p(g) = \textrm{deg }g\) and \(\textrm{deg }\psi_p(h) = \textrm{deg }h\).
+          This shows that \(\psi_p(f)\) is reducible.
+        </span>
+        <p class="square">\(\square\)</p>
+      </div>
+      <p>
+        Since there are only finitely many polynomials in \(\mathbb{F}_p[x]\), this is a convenient way of showing that a polynomial in \(\mathbb{Z}[x]\) is irreducible.
+        For example, \(f(x) = x^3 + x + 1\) is irreducible because \(\psi_2(f)\) has no roots in \(\mathbb{F}_2\).
+        The polynomial \(f(x) = x^4 + x^3 + 1\) is also irreducible.
+        It doesn't have a root in \(\mathbb{F}_2\) so it doesn't factor as the product of a degree 1 and a degree 3 polynomial in \(\mathbb{F}_2[x]\).
+        And the only irreducible polynomial of degree 2 in \(\mathbb{F}_2[x]\) is \(x^2 + x + 1\), and its square is not \(f(x)\).
       </p>
       <p>
-      Since there are only finitely many polynomials in \(\mathbb{F}_p[x]\), this is a convenient way of showing that a polynomial in \(\mathbb{Z}[x]\) is irreducible. For example, \(f(x) = x^3 + x + 1\) is irreducible because \(\psi_2(f)\) has no roots in \(\mathbb{F}_2\). The polynomial \(f(x) = x^4 + x^3 + 1\) is also irreducible. It doesn't have a root in \(\mathbb{F}_2\) so it doesn't factor as the product of a degree 1 and a degree 3 polynomial in \(\mathbb{F}_2[x]\). And the only irreducible polynomial of degree 2 in \(\mathbb{F}_2[x]\) is \(x^2 + x + 1\), and its square is not \(f(x)\).
+        However, this technique does not always work.
+        There are irreducible integer polynomials that can be factored modulo every prime \(p\).
+        The polynomial \(x^4 - 10x^2 + 1\) is an example.
       </p>
-      <p>
-        However, this technique does not always work. There are irreducible integer polynomials that can be factored modulo every prime \(p\). The polynomial \(x^4 - 10x^2 + 1\) is an example.
+      <hr />
     </div>
   </body>
 </html>

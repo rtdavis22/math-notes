@@ -5,83 +5,117 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Duality</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
   <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <h3>Duality</h3>
-      <p><strong>I.</strong></p>
-      <p>
-        A <strong>linear functional</strong> is a linear map from a vector space to its field of scalars.
-      </p>
-      <p>
-	Some examples:
-	<ol>
-	  <li><p>\(f \colon \mathbb{R}^3 \to \mathbb{R}\) defined by \(f(x,y,z) = 4x - 5y + 2z\) is a linear functional on \(\mathbb{R}^3\).</p></li>
-	  <li><p>\(f \colon P_n(\mathbb{R}) \to \mathbb{R}\) defined by \(f(p) = p(1)\), the polynomial evalutated at 1, is a linear functional.</p></li>
-	  <li><p>Let \(V = C([0,1])\), the set of continuous functions on \([0,1]\). Define \(f \colon V \to \mathbb{R}\) as \(f(g) = \int_0^1 g(x) \, \mathrm{d}x\). Then \(f\) is a linear functional.</p></li>
-	  <li><p>\(f \colon \mathbb{R}^3 \to \mathbb{R}\) where \(f(x,y,z) = x^2 + y^2 + z^2\) is not a linear functional.</p></li>
-	</ol>
-      </p>
-      <p>
-      The <strong>dual space</strong> of a vector space \(V\), denoted \(V^*\), is the vector space of all linear functionals on \(V\). In other words, \(V^* = \mathcal{L}(V, \mathbb{F})\).
-      </p>
-      <p>
-	If \(V\) is finite-dimensional, then \(\textrm{dim }V = \textrm{dim }V^*\). This follows from the result that \(\textrm{dim } \mathcal{L}(V,W) = (\textrm{dim }V)(\textrm{dim }W)\).
-      </p>
-      <p>
-      Let \(v_1, \ldots, v_n\) be a basis for \(V\). The <strong>dual basis</strong> of \(v_1, \ldots, v_n\) is the list \(f_1, \ldots, f_n\) of elements of \(V^*\), where \(f_j(v_k) = \delta_{kj}\).
-      Since linear maps are completely determined by their actions on the basis vectors, this is enough to define \(f_j\).
-      </p>
-      <p>
-        <p style="border:2px solid black;padding:2px;margin-bottom:0px">The dual basis of a basis of \(V\) is a basis for \(V^*\).</p>
-	<i>Proof: </i>Suppose \(v_1, \ldots, v_n\) is a basis for \(V\). Let \(f_1, \ldots, f_n\) denote the dual basis.
-	<br />
-	To show that \(f_1, \ldots, f_n\) are linearly independent, suppose \(a_1f_1 + \cdots + a_nf_n = 0\), the zero functional. In particular,
-	\[ (a_1f_1 + \cdots + a_nf_n)(v_1) = a_1f_1(v_1) + \cdots + a_nf_n(v_1) = a_1 = 0. \]
-	Similarly, \(a_2 = \cdots = a_n = 0\). Hence \(f_1, \ldots, f_n\) are linearly independent.
-	<br />
-	Since \(\textrm{dim }V^* = \textrm{dim }V\), the dual basis spans \(V^*\).
-      </p>
-      <p>
-        To show explicitly how an arbitrary \(f \in V^*\) can be written as a linear combination of the dual basis \(f_1, \ldots, f_n\), we need to find \(a_1, \ldots, a_n\) so that
-	\[ f(x) = a_1f_1(x) + \cdots + a_nf_n(x) \textrm{ for all } x \in V. \]
-	We must have
-	\[ f(v_j) = a_1f_1(v_j) + \cdots + a_nf_n(v_j) = a_j, \]
-	so \(a_j = f(v_j)\).
-	To show that these \(a_1, \ldots, a_n\) work, note that
-	\[ \begin{aligned} f(v_1)f_1(x) + \cdots + f(v_n)f_n(x) &= x_1f(v_1) + \cdots + x_nf(v_n) \\ &= f(x_1v_1 + \cdots + x_nv_n) \\ &= f(x). \end{aligned} \]
-      </p>
-      <p style="border-top:2px solid black;padding:2px;margin-bottom:0px;border-bottom:2px solid black">
-      <strong>Example.</strong> Let \(V = \mathbb{R}^2\) and \(\beta = \{(2,1),(3,1)\}\) be a basis for \(V\). We want to find the dual basis \(\beta^* = \{f_1, f_2\}\).
-      <br />
-        \(\,\,\,\,\) We have \(f_1(2,1) = 1\) and \(f_1(3,1) = 0\), which gives the system
-	\[ \begin{aligned} 2f_1(1,0) + f_1(0,1) &= 1 \\ 3f_1(1,0) + f_1(0,1) &= 0. \end{aligned} \]
-	Solving the system yields
-	\[ f_1(1,0) = -1, \,\,\,\, f_1(0,1) = 0.\]
-	So
-	\[ f_1(x,y) = xf_1(1,0) + yf_1(0,1) = -x + 3y.\]
-        Similarly,
-	\[ f_2(x,y) = x - 2y.\]
-        \(\,\,\,\,\) Using the formula above, we can decompose any \(f \in V^*\) as
-	\[ f = f(2,1)f + f(3,1)f .\]
-	For example, if \(f(x,y) = 2x - 5y\), then \(f\) can be written
-	\[ f = -f_1 + f_2 = -(-x + 3y) + (x - 2y). \]
-      </p>
-      <p><strong>II.</strong></p>
-      <p>
-        The transpose \(T^T\) of a linear transformation \(T \colon V \to W\) maps linear functionals on \(W\) to linear functionals on \(V\).
-	That is, \(T^T \colon W^* \to V^*\), or \(T^T \colon (W \to \mathbb{F}) \to (V \to \mathbb{F})\).
-	It is defined by
-	\[ T^T(g)(v) = g(T(v)). \]
-	For a fixed \(g \in W^*\), this gives a way of going directly from \(V\) to \(\mathbb{F}\).
-      </p>
-      <p>
-        <p style="border:2px solid black;padding:2px;margin-bottom:0px">
-	  Let \(T \colon V \to W\), \(\beta = \{v_1, \ldots, v_n\}\) be a basis for \(V\), \(\gamma = \{w_1, \ldots, w_n\}\) be a basis for \(W\), and \(A\) the matrix of \(T\) with respect to these bases.
-	  Furthermore, let \(\beta^* = \{f_1, \ldots, f_n\}\) be the dual basis of \(\beta\) and let \(\gamma^* = \{g_1, \ldots, g_m\}\) be the dual basis of \(\gamma\). Then \(M(T^T, \gamma^*, \beta^*) = A^T\).
-	</p>  
-      </p>
-      <p>
+    <div class="wrapper">
+      <h1>Duality</h1>
+      <div class="section">
+	      <h2>I.</h2>
+        <p>
+          A <strong>linear functional</strong> is a linear map from a vector space to its field of scalars.
+        </p>
+	      <span>The following are examples of linear functionals.</span>
+        <ol>
+          <li>\(f \colon \mathbb{R}^3 \to \mathbb{R}\) defined by \(f(x,y,z) = 4x - 5y + 2z\) is a linear functional on \(\mathbb{R}^3\).</li>
+          <li>\(f \colon P_n(\mathbb{R}) \to \mathbb{R}\) defined by \(f(p) = p(1)\), the polynomial evalutated at 1, is a linear functional.</li>
+          <li>
+            Let \(V = C([0,1])\), the set of continuous functions on \([0,1]\).
+            Define \(f \colon V \to \mathbb{R}\) as \(f(g) = \int_0^1 g(x) \, \mathrm{d}x\).
+            Then \(f\) is a linear functional.</li>
+          <li>\(f \colon \mathbb{R}^3 \to \mathbb{R}\) where \(f(x,y,z) = x^2 + y^2 + z^2\) is not a linear functional.</li>
+        </ol>
+        <p>
+          The <strong>dual space</strong> of a vector space \(V\), denoted \(V^*\), is the vector space of all linear functionals on \(V\).
+          In other words, \(V^* = \mathcal{L}(V, \mathbb{F})\).
+        </p>
+        <p>
+          If \(V\) is finite-dimensional, then \(\textrm{dim }V = \textrm{dim }V^*\).
+          This follows from the result that \(\textrm{dim } \mathcal{L}(V,W) = (\textrm{dim }V)(\textrm{dim }W)\).
+        </p>
+        <p>
+          Let \(v_1, \ldots, v_n\) be a basis for \(V\).
+          The <strong>dual basis</strong> of \(v_1, \ldots, v_n\) is the list \(f_1, \ldots, f_n\) of elements of \(V^*\), where \(f_j(v_k) = \delta_{kj}\).
+          Since linear maps are completely determined by their actions on the basis vectors, this is enough to define \(f_j\).
+        </p>
+        <p>
+          <span class="result">Proposition.</span>
+          The dual basis of a basis of \(V\) is a basis for \(V^*\).
+        </p>
+        <div class="proof">
+          <span class="proof">Proof.</span>
+          <span>
+            Suppose \(v_1, \ldots, v_n\) is a basis for \(V\).
+            Let \(f_1, \ldots, f_n\) denote the dual basis.
+          </span>
+          <p>
+            To show that \(f_1, \ldots, f_n\) are linearly independent, suppose \(a_1f_1 + \cdots + a_nf_n = 0\), the zero functional. In particular,
+            \[ (a_1f_1 + \cdots + a_nf_n)(v_1) = a_1f_1(v_1) + \cdots + a_nf_n(v_1) = a_1 = 0. \]
+            Similarly, \(a_2 = \cdots = a_n = 0\). Hence \(f_1, \ldots, f_n\) are linearly independent.
+          </p>
+          <p>
+            Since \(\textrm{dim }V^* = \textrm{dim }V\), the dual basis spans \(V^*\).
+          </p>
+          <p class="square">\(\square\)</p>
+        </div>
+        <p>
+          To show explicitly how an arbitrary \(f \in V^*\) can be written as a linear combination of the dual basis \(f_1, \ldots, f_n\),
+          we need to find \(a_1, \ldots, a_n\) so that
+          \[ f(x) = a_1f_1(x) + \cdots + a_nf_n(x) \textrm{ for all } x \in V. \]
+          We must have
+          \[ f(v_j) = a_1f_1(v_j) + \cdots + a_nf_n(v_j) = a_j, \]
+          so \(a_j = f(v_j)\).
+          To show that these \(a_1, \ldots, a_n\) work, note that
+          \[ \begin{aligned} f(v_1)f_1(x) + \cdots + f(v_n)f_n(x) &= x_1f(v_1) + \cdots + x_nf(v_n) \\ &= f(x_1v_1 + \cdots + x_nv_n) \\ &= f(x). \end{aligned} \]
+        </p>
+        <hr />
+        <p>
+          <span class="result">Example.</span>
+          <span>
+            Let \(V = \mathbb{R}^2\) and \(\beta = \{(2,1),(3,1)\}\) be a basis for \(V\).
+            We want to find the dual basis \(\beta^* = \{f_1, f_2\}\).
+          </span>
+        </p>
+        <p>
+          We have \(f_1(2,1) = 1\) and \(f_1(3,1) = 0\), which gives the system
+          \[ \begin{aligned} 2f_1(1,0) + f_1(0,1) &= 1 \\ 3f_1(1,0) + f_1(0,1) &= 0. \end{aligned} \]
+          Solving the system yields
+          \[ f_1(1,0) = -1, \,\,\,\, f_1(0,1) = 0.\]
+          So
+          \[ f_1(x,y) = xf_1(1,0) + yf_1(0,1) = -x + 3y.\]
+          Similarly,
+          \[ f_2(x,y) = x - 2y.\]
+        </p>
+        <p>
+          Using the formula above, we can decompose any \(f \in V^*\) as
+          \[ f = f(2,1)f + f(3,1)f .\]
+          For example, if \(f(x,y) = 2x - 5y\), then \(f\) can be written
+          \[ f = -f_1 + f_2 = -(-x + 3y) + (x - 2y). \]
+        </p>
+	      <hr />
+      </div>
+      <div class="section">
+	      <h2>II.</h2>
+        <p>
+          The transpose \(T^T\) of a linear transformation \(T \colon V \to W\) maps linear functionals on \(W\) to linear functionals on \(V\).
+          That is, \(T^T \colon W^* \to V^*\), or \(T^T \colon (W \to \mathbb{F}) \to (V \to \mathbb{F})\).
+          It is defined by
+          \[ T^T(g)(v) = g(T(v)). \]
+          For a fixed \(g \in W^*\), this gives a way of going directly from \(V\) to \(\mathbb{F}\).
+        </p>
+        <p>
+          The next result shows that the transpose of a linear map is ...
+        </p>
+        <p>
+	        <span class="result">Proposition.</span>
+          <span>
+	          Let \(T \colon V \to W\), \(\beta = \{v_1, \ldots, v_n\}\) be a basis for \(V\),
+            \(\gamma = \{w_1, \ldots, w_n\}\) be a basis for \(W\), and \(A\) the matrix of \(T\) with respect to these bases.
+            Furthermore, let \(\beta^* = \{f_1, \ldots, f_n\}\) be the dual basis of \(\beta\) and let \(\gamma^* = \{g_1, \ldots, g_m\}\) be the dual basis of \(\gamma\).
+            Then \(M(T^T, \gamma^*, \beta^*) = A^T\).
+          </span>
+        </p>
+        <p>
       \(\pmatrix{
 a_{11} & a_{12} & \ldots & a_{1n} \cr
 a_{21} & a_{22} & \ldots & a_{2n} \cr
@@ -89,11 +123,18 @@ a_{21} & a_{22} & \ldots & a_{2n} \cr
 a_{m1} & a_{m2} & \ldots & a_{mn} \cr
 }\)
 \(\pmatrix{
-| & | &  & | \cr
-a_{21} & a_{22} & \ldots & a_{2n} \cr
-| & | &  & | \cr
+| &  & | \cr
+T^T(g_1) & \ldots & T^T(g_m) \cr
+| &  & | \cr
 }\)
-      </p>
+\(\begin{matrix}
+f_1 \cr
+\vdots \cr
+f_n \cr
+\end{matrix}\)
+        </p>
+        <hr />
+      </div>
     </div>
   </body>
 </html>

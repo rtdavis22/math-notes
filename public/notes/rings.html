@@ -5,32 +5,33 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Rings</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <h3>Rings</h3>
-      <p>
+    <div class="wrapper">
+      <h1>Rings</h1>
+      <span>
         A <strong>ring</strong> is a set \(R\) with binary operations addition and multiplication satisfying the following properties:
 	<ol>
 	  <li>
 	    Under addition, \(R\) is an abelian group. Its identity is denoted 0.
 	  </li>
 	  <li>
-	    Multiplication is associative and has an identity called 1:
-            <ul>
-	      <li>For all \(a, b, c\) in \(R\), \((ab)c = a(bc)\).</li>
-	      <li>For all \(a\) in \(R\), \(a1 = 1a = a\).</li>
-	    </ul>
+	      Multiplication is associative and has an identity called 1:
+              <ul>
+		<li>For all \(a, b, c\) in \(R\), \((ab)c = a(bc)\).</li>
+		<li>For all \(a\) in \(R\), \(a1 = 1a = a\).</li>
+	      </ul>
 	  </li>
           <li>
-            Multiplication is distributive with respect to addition. For all \(a, b, c\) in \(R\),
-	    <ul>
-	      <li>\(a(b + c) = ab + ac\)</li>
-	      <li>\((b + c)a = ba + ca\)</li>
-	    </ul>
+              Multiplication is distributive with respect to addition. For all \(a, b, c\) in \(R\),
+	      <ul>
+	        <li>\(a(b + c) = ab + ac\)</li>
+	        <li>\((b + c)a = ba + ca\)</li>
+	      </ul>
 	  </li>
 	</ol>
-      </p>
+      </span>
       <p>
         If multiplication is commutative, the ring is called a commutative ring. Since these are the primary object of our study, we assume rings are commutative unless otherwise noted.
       </p>
@@ -40,8 +41,9 @@
       <p>
         A <strong>unit</strong> of a ring \(R\) is an element that has a multiplicative inverse. These elements form a group under multiplication called the <strong>unit group</strong> of \(R\), denoted \(R^{\times}\).
       </p>
+      <hr />
       <p>
-        Examples of rings:
+        Some examples of rings are listed below.
 	<ol>
           <li>
 	    <p>The complex numbers \(\mathbb{C}\) form a ring, with subrings \(\mathbb{R}\), \(\mathbb{Q}\), and \(\mathbb{Z}\).</p>
@@ -68,18 +70,16 @@
 	  <li>
 	    <p>
               For any abelian group \((A, +, 0)\), the set of homomorphisms from \(A\) to itself forms a ring called the endomorphism ring of \(A\), or End(\(A\)). These rings are usually non-commutative.
-	      <ul>
-	        <li>
+	    </p>
+	    <p>
 		  Addition of homomorphisms \(f\) and \(g\) is defined pointwise:
 	          \[ (f + g)(a) = f(a) + g(a). \]
 		  The additive identity is the homomorphism with \(0(a) = 0\).
-	        </li>
-	        <li>
 		  Multiplication of homomorphisms \(f\) and \(g\) is defined as composition of homomorphisms:
 		  \[ (fg)(a) = f(g(a)). \]
   		  The multiplicative identity is the identity homomorphism \(1(a) = a\).
-	        </li>
-	      </ul>
+	    </p>
+	    <p>
 	      The units of an endomorphism ring are the isomorphisms.
 	    </p>
 	    <p>
