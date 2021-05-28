@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
     <title>Quadratic Number Fields</title>
   </head>
   <body>
@@ -20,7 +21,7 @@
         A rational number is an algebraic integer if and only if it is an ordinary integer. This is true because the irreducible polynomial over \(\mathbb{Q}\) for a rational number \(a\) is \(x - a\).
       </p>
       <p>
-      A <strong>quadratic number field</strong> is a field of the form \(\mathbb{Q}[\sqrt{d}]\), where \(d\) is a fixed integer which is not a square. We also assume that \(d\) is square-free since otherwise we could pull the square out of the radical. If \(d > 0\) we say it's a real quadratic number field, and if \(d < 0\) we say it's an imaginary quadratic number field.
+      A <strong>quadratic number field</strong> is a field of the form \(\mathbb{Q}[\sqrt{d}]\), where \(d\) is a fixed integer which is not a square. We also assume that \(d\) is square-free since otherwise we could pull the square out of the radical. If \(d > 0\) we say it's a real quadratic number field, and if \(d \lt 0\) we say it's an imaginary quadratic number field.
       </p>
       <p>
         We'd like to determine the algebraic integers in \(\mathbb{Q}[\sqrt{d}]\). Let \(\alpha = a + b\sqrt{d}\) be an element of \(\mathbb{Q}[\sqrt{d}]\) that is not in \(\mathbb{Q}\) (i.e. \(b \neq 0\)), and let \(\alpha' = a - b\sqrt{d}\). Then \(\alpha\) and \(\alpha'\) are roots of the polynomial
@@ -54,7 +55,15 @@
       If \(d > 0\), it can be shown that the unit group of \(R\) is infinite. For example, if \(d = 5\), then the golden ratio \(\frac{1}{2}(1 + \sqrt{5})\) has norm -1 and all of its positive integer powers are distinct and have norm \(\pm 1\).
       </p>
       <p>
-      Now we examine the units when \(d < 0\). In this case, a norm of -1 is not possible, so we are looking for solutions to the equation \(N(\alpha) = a^2 - b^2d = 1\), where \(a\) and \(b\) are integers or half-integers. If \(b = 0\), then \(a = \pm 1\) are solutions. If \(b \neq 0\) and \(d < -1\), we must have \(a = \frac{1}{2}\) and \(-b^2d = \frac{3}{4}\), where \(b\) is a half-integer and \(d\) is 1 modulo 4. If \(d < -3\), this equation has no solutions. If \(d = -3\), there are 4 solutions: \(\pm\frac{1}{2} \pm \frac{1}{2}\sqrt{-3}\). Finally, if \(d = -1\), the four powers of \(i\) are solutions.
+      Now we examine the units when \(d \lt 0\).
+      In this case, a norm of -1 is not possible, so we are looking for solutions to the equation \(N(\alpha) = a^2 - b^2d = 1\),
+      where \(a\) and \(b\) are integers or half-integers.
+      If \(b = 0\), then \(a = \pm 1\) are solutions.
+      If \(b \neq 0\) and \(d \lt -1\), we must have \(a = \frac{1}{2}\) and \(-b^2d = \frac{3}{4}\),
+      where \(b\) is a half-integer and \(d\) is 1 modulo 4.
+      If \(d \lt -3\), this equation has no solutions.
+      If \(d = -3\), there are 4 solutions: \(\pm\frac{1}{2} \pm \frac{1}{2}\sqrt{-3}\).
+      Finally, if \(d = -1\), the four powers of \(i\) are solutions.
       </p>
       <p>
         To recap, if \(R\) is the ring of integers in an imaginary quadratic number field, then

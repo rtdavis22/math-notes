@@ -10,8 +10,6 @@ To start up development server:
 
 npm start
 
-More info: https://create-react-app.dev/
-
 ### Deploy
 
 git push heroku master

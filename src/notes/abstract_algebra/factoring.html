@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
     <title>Factoring</title>
   </head>
   <body>
@@ -14,7 +15,7 @@
       </p>
       <p><strong>I.</strong></p>
       <p>
-        An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) < \sigma(a)\).
+        An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) \lt \sigma(a)\).
       </p>
       <p>
         Some examples of Euclidean Domains:
@@ -27,7 +28,7 @@
 	      <br />
 	      <i>Proof:</i> Let \(A,B \in \mathbb{Z}[i]\). There is some \(w \in \mathbb{Q}[i]\) with \(B = Aw\). In particular,
 	      \[ w = \frac{B}{A} = \frac{B\bar{A}}{A\bar{A}} = \frac{B\bar{A}}{\sigma(A)}.\]
-	      Now, write \(w = \alpha + \beta i\), where \(\alpha = \alpha_0 + r_0\) and \(\beta = \beta_0 + s_0\), with \(\alpha_0, \beta_0 \in \mathbb{Z}\) and \(\frac{1}{2} < r_0,s_0 \leq \frac{1}{2}\). Then
+	      Now, write \(w = \alpha + \beta i\), where \(\alpha = \alpha_0 + r_0\) and \(\beta = \beta_0 + s_0\), with \(\alpha_0, \beta_0 \in \mathbb{Z}\) and \(\frac{1}{2} \lt r_0,s_0 \leq \frac{1}{2}\). Then
 	    \[ \begin{aligned} B = Aw &= A(\alpha + \beta i) \\ &= A(\alpha_0 + r_0) + A(\beta_0 + s_0)i \\ &= A(\alpha_0 + \beta_0 i) + A(r_0 + s_0 i). \end{aligned} \]
 	    Since \(B\) and \(A(\alpha_0 + \beta_0 i)\) are in \(\mathbb{Z}[i]\), so is \(A(r_0 + s_0 i)\). Finally,
 	    \[ \sigma(A(r_0 + s_0 i)) = \sigma(A)(r_0^2 + s_0^2) \leq \frac{1}{2}\sigma(A), \]
@@ -42,7 +43,7 @@
 	<br />
 	<i>Proof:</i> Let \(A\) be a nonzero ideal of a Euclidean domain \(R\). Choose a nonzero element \(a\) such that \(\sigma(a)\) is as small as possible. We will show that \(A = (a)\).
 	<br />
-        Clearly, \((a) \subset A\). Take any element \(b\) of \(A\) and write \(b = aq + r\), where either \(r = 0\) or \(\sigma(r) < \sigma(a)\). Since \(b\) and \(aq\) are in \(A\), so is \(r\). Since \(\sigma(a)\) is minimal, we can't have \(\sigma(r) < \sigma(a)\). It follows that \(r = 0\), which means that \(a\) divides \(b\) and \(b \in (a)\).
+        Clearly, \((a) \subset A\). Take any element \(b\) of \(A\) and write \(b = aq + r\), where either \(r = 0\) or \(\sigma(r) \lt \sigma(a)\). Since \(b\) and \(aq\) are in \(A\), so is \(r\). Since \(\sigma(a)\) is minimal, we can't have \(\sigma(r) \lt \sigma(a)\). It follows that \(r = 0\), which means that \(a\) divides \(b\) and \(b \in (a)\).
       </p>
       <p>
         A greatest common divisor (or gcd) of elements \(a\) and \(b\) in a ring is a nonzero element \(d\) with
