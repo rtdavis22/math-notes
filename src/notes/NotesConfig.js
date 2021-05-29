@@ -1,4 +1,4 @@
-export const Config = {
+export const NotesConfig = {
   sections: [{
     name: "Abstract Algebra",
     subdirectory: "abstract_algebra",

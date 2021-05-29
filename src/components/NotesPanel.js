@@ -1,17 +1,9 @@
 import React from 'react';
 
-import './styles/app.css';
-import './styles/notes.css';
+import '../styles/app.css';
+import '../styles/notes.css';
 
-import {Config} from './Config';
-
-class App extends React.Component {
-  render() {
-    return <Notes sectionConfig={Config['sections'][0]} />
-  }
-}
-
-class Notes extends React.Component {
+class NotesPanel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,15 +14,15 @@ class Notes extends React.Component {
     const {sectionConfig} = this.props;
 
     Promise.all(sectionConfig["sections"].map(section => {
-      return import(`./notes/${sectionConfig.subdirectory}/${section.file}.html`).then((module) => {
+      return import(`../notes/${sectionConfig.subdirectory}/${section.file}.html`).then((module) => {
         const html = module.default;
-	const body = html.match(new RegExp('<body>(.*)</body>', 's'))[1];
-	return (
-	  <div key={section.name}>
-	    <Section name={section.name} html={body} />
-	    <hr />
-	  </div>
-	);
+        const body = html.match(new RegExp('<body>(.*)</body>', 's'))[1];
+        return (
+          <div key={section.name}>
+            <Section name={section.name} html={body} />
+            <hr />
+          </div>
+        );
       });
     })).then(res => this.setState({sections:res}));
   }
@@ -59,4 +51,6 @@ class Section extends React.Component {
   }
 }
 
-export default App;
+export {
+  NotesPanel,
+};
