@@ -8,7 +8,8 @@
     "dev": "webpack --mode development",
     "serve": "webpack serve --open",
     "start": "node server.js",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,17 @@
   "homepage": "https://github.com/rtdavis22/math-notes#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.4",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
@@ -36,6 +44,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
