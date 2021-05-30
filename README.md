@@ -1,15 +1,13 @@
 https://robs-math-notes.herokuapp.com/
 
-### Build
-
-To generate node_modules/:
-
+## To Build
+```
 npm install
+npm run build (for production)
+npm run dev (for development)
+```
 
-To start up development server:
-
+## To Run
+```
 npm start
-
-### Deploy
-
-git push heroku master
+```

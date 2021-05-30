@@ -4,12 +4,11 @@
   "description": "https://robs-math-notes.herokuapp.com/",
   "main": "babel.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js",
     "dev": "webpack --mode development",
-    "serve": "webpack serve --open",
-    "start": "node server.js",
     "build": "webpack --mode production",
-    "lint": "eslint src/**/*.js"
+    "serve": "webpack serve --open",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
