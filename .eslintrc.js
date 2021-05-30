@@ -21,7 +21,6 @@ module.exports = {
   rules: {
     "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": "off",
-    "react/no-danger": "off",
     "react/static-property-placement": "off",
   },
 };
