@@ -5,7 +5,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Duality</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
   </head>
   <body>
     <div class="wrapper">
@@ -98,41 +98,35 @@
 	      <h2>II.</h2>
         <p>
           The transpose \(T^T\) of a linear transformation \(T \colon V \to W\) maps linear functionals on \(W\) to linear functionals on \(V\).
-          That is, \(T^T \colon W^* \to V^*\), or \(T^T \colon (W \to \mathbb{F}) \to (V \to \mathbb{F})\).
+          That is, \(T^T \colon W^* \to V^*\).
           It is defined by
-          \[ T^T(g)(v) = g(T(v)). \]
+          \[ T^T(g) = g \circ T. \]
           For a fixed \(g \in W^*\), this gives a way of going directly from \(V\) to \(\mathbb{F}\).
-        </p>
-        <p>
-          The next result shows that the transpose of a linear map is ...
         </p>
         <p>
 	        <span class="result">Proposition.</span>
           <span>
-	          Let \(T \colon V \to W\), \(\beta = \{v_1, \ldots, v_n\}\) be a basis for \(V\),
-            \(\gamma = \{w_1, \ldots, w_n\}\) be a basis for \(W\), and \(A\) the matrix of \(T\) with respect to these bases.
+	          Let \(T \colon V \to W\), \(\beta = \{v_1, \ldots, v_n\}\) be a basis for \(V\), and
+            \(\gamma = \{w_1, \ldots, w_n\}\) be a basis for \(W\).
             Furthermore, let \(\beta^* = \{f_1, \ldots, f_n\}\) be the dual basis of \(\beta\) and let \(\gamma^* = \{g_1, \ldots, g_m\}\) be the dual basis of \(\gamma\).
-            Then \(M(T^T, \gamma^*, \beta^*) = A^T\).
+            Then \(\mathcal{M}(T^T, \gamma^*, \beta^*) = (\mathcal{M}(T, \beta, \gamma))^T\).
           </span>
         </p>
-        <p>
-      \(\pmatrix{
-a_{11} & a_{12} & \ldots & a_{1n} \cr
-a_{21} & a_{22} & \ldots & a_{2n} \cr
-\vdots & \vdots & \ddots & \vdots \cr
-a_{m1} & a_{m2} & \ldots & a_{mn} \cr
-}\)
-\(\pmatrix{
-| &  & | \cr
-T^T(g_1) & \ldots & T^T(g_m) \cr
-| &  & | \cr
-}\)
-\(\begin{matrix}
-f_1 \cr
-\vdots \cr
-f_n \cr
-\end{matrix}\)
-        </p>
+        <div class="proof">
+          <span class="proof">Proof.</span>
+          <span>
+            Let \(A = \mathcal{M}(T, \beta, \gamma)\) and \(C = \mathcal{M}(T^T, \gamma^*, \beta^*)\). On the one hand,
+            \[ (g_j \circ T)(v_k) = T^T(g_j)(v_k) = C_{1_j}f_1(v_k) + \cdots + C_{n,j}f_n(v_k) = C_{k,j}. \]
+          </span>
+          <p>
+            Also,
+            \[ (g_j \circ T)(v_k) = g_j(Tv_k) = g_j(A_{1,k}w_1 + \cdots + A_{m,k}w_m) = A_{j,k}. \]
+          </p>
+          <p>
+            Therefore \(C_{k,j} = A_{j,k}\).
+          </p>
+          <p class="square">\(\square\)</p>
+        </div>
         <hr />
       </div>
     </div>
