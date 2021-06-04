@@ -20,10 +20,15 @@ export default class App extends React.Component {
   render() {
     const sectionConfig = NotesConfig.sections[this.state.selectedSubjectId];
 
-    const nav = NotesConfig.sections.map((subject, idx) => (
-      <button key={subject.name} type="button" onClick={() => this.selectSubject(idx)}>
-        {subject.name}
-      </button>
+    const navList = NotesConfig.sections.map((subject, idx) => (
+      <li key={subject.name}>
+        <button
+          type="button"
+          className={(this.state.selectedSubjectId === idx) ? 'selected' : ''}
+          onClick={() => this.selectSubject(idx)}>
+          {subject.name}
+        </button>
+      </li>
     ));
 
     return (
@@ -31,7 +36,9 @@ export default class App extends React.Component {
         <div>
           <div id="section-menu-wrapper">
             <nav>
-              {nav}
+              <ul>
+                {navList}
+              </ul>
             </nav>
           </div>
           <div id="content-wrapper">

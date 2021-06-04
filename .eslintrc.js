@@ -20,6 +20,7 @@ module.exports = {
   ],
   rules: {
     "react/destructuring-assignment": "off",
+    "react/jsx-closing-bracket-location": "off",
     "react/jsx-filename-extension": "off",
     "react/static-property-placement": "off",
   },
