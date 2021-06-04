@@ -3,7 +3,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default class Section extends React.PureComponent {
+import '../styles/notes-section.css';
+
+export default class NotesSection extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     html: PropTypes.string.isRequired,

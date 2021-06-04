@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Section from './Section';
+import NotesSection from './NotesSection';
 
-import '../styles/app.css';
-import '../styles/notes.css';
+import '../styles/notes-panel.css';
 
 export default class NotesPanel extends React.Component {
   static propTypes = {
@@ -24,24 +23,30 @@ export default class NotesPanel extends React.Component {
   }
 
   componentDidMount() {
-    const { sectionConfig } = this.props;
+    this.loadDataAsync(this.props.sectionConfig);
+  }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.sectionConfig.subdirectory !== this.props.sectionConfig.subdirectory) {
+      this.loadDataAsync(this.props.sectionConfig);
+    } else {
+      MathJax.typeset(); // eslint-disable-line no-undef
+    }
+  }
+
+  loadDataAsync(sectionConfig) {
     Promise.all(sectionConfig.sections.map((section) => (
       import(`../notes/${sectionConfig.subdirectory}/${section.file}.html`).then((module) => {
         const html = module.default;
         const body = html.match(new RegExp('<body>(.*)</body>', 's'))[1];
         return (
           <div key={section.name}>
-            <Section name={section.name} html={body} />
+            <NotesSection name={section.name} html={body} />
             <hr />
           </div>
         );
       })
     ))).then((res) => this.setState({ sections: res }));
-  }
-
-  componentDidUpdate() {
-    MathJax.typeset(); // eslint-disable-line no-undef
   }
 
   render() {

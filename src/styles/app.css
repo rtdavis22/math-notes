@@ -1,9 +1,14 @@
-div.notes_wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 40em;
+#section-menu-wrapper {
+    width: calc(50% - 20em);
+    float:left;
 }
 
-section {
-  margin-top: 60px;
+#content-wrapper {
+    width: 40em;
+    float:left;
+}
+
+#active-nav-wrapper {
+    width: calc(50% - 20em);
+    float:right;
 }
