@@ -5,7 +5,7 @@ import '../styles/active-nav.css';
 
 export default class ActiveNav extends React.Component {
   static propTypes = {
-    // TODO: Use prop type
+    // TODO: Find place to put types and fix this
     sectionConfig: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
   };
 
@@ -25,18 +25,17 @@ export default class ActiveNav extends React.Component {
 
   handleScroll = () => {
     const fromTop = window.scrollY;
+    const { sections } = this.props.sectionConfig;
 
-    this.props.sectionConfig.sections.forEach((sectionConfig, idx) => {
-      const section = document.querySelector(`#${sectionConfig.file}`);
-
-      if (
-        section.offsetTop <= fromTop
-        && section.offsetTop + section.offsetHeight > fromTop
-        && this.state.selectedSectionId !== idx
-      ) {
-        this.setState({ selectedSectionId: idx });
+    for (let i = 0; i < sections.length; i++) {
+      const section = document.querySelector(`#${sections[i].file}`);
+      if (section.offsetTop + section.offsetHeight > fromTop) {
+        if (this.state.selectedSectionId !== i) {
+          this.setState({ selectedSectionId: i });
+        }
+        break;
       }
-    });
+    }
   }
 
   render() {
