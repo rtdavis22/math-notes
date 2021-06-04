@@ -41,7 +41,7 @@ export default class NotesPanel extends React.Component {
         const body = html.match(new RegExp('<body>(.*)</body>', 's'))[1];
         return (
           <div key={section.name}>
-            <NotesSection name={section.name} html={body} />
+            <NotesSection name={section.name} html={body} file={section.file} />
             <hr />
           </div>
         );

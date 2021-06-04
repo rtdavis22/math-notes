@@ -1,0 +1,26 @@
+nav.activeNav {
+  padding-left: 20px;
+}
+
+nav.activeNav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+}
+
+nav.activeNav > ul > li > a {
+  display: block;
+  text-decoration: none;
+}
+
+nav.activeNav > ul > li > a {
+  font-size: 11px;
+  color: black;
+}
+
+nav.activeNav > ul > li > a.selected {
+  font-weight: bold;
+}

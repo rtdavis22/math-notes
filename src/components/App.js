@@ -45,7 +45,7 @@ export default class App extends React.Component {
             <NotesPanel sectionConfig={sectionConfig} />
           </div>
           <div id="active-nav-wrapper">
-            <ActiveNav />
+            <ActiveNav sectionConfig={sectionConfig} />
           </div>
         </div>
         <div style={{ clear: 'both' }} />
