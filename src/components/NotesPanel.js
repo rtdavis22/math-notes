@@ -1,19 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import NotesSection from './NotesSection';
+
+import { ConfigType } from '../notes/NotesConfig';
 
 import '../styles/notes-panel.css';
 
 export default class NotesPanel extends React.Component {
   static propTypes = {
-    sectionConfig: PropTypes.shape({
-      subdirectory: PropTypes.string,
-      sections: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        file: PropTypes.string,
-      })),
-    }).isRequired,
+    sectionConfig: ConfigType.isRequired,
   };
 
   constructor(props) {

@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
+import { ConfigType } from '../notes/NotesConfig';
 
 import '../styles/active-nav.css';
 
 export default class ActiveNav extends React.Component {
   static propTypes = {
-    // TODO: Find place to put types and fix this
-    sectionConfig: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
+    sectionConfig: ConfigType.isRequired,
   };
 
   constructor(props) {

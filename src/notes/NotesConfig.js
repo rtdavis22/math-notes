@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default {
   sections: [{
     name: 'Abstract Algebra',
@@ -25,3 +27,11 @@ export default {
     ],
   }],
 };
+
+export const ConfigType = PropTypes.shape({
+  subdirectory: PropTypes.string,
+  sections: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    file: PropTypes.string,
+  })),
+});
