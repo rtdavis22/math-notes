@@ -14,24 +14,29 @@ import NotesPanel from './NotesPanel';
 import '../styles/app.css';
 
 export default function App() {
-  const navList = NotesConfig.sections.map((subject) => (
-    <li key={subject.name}>
-      <NavLink to={subject.subdirectory} activeClassName="selected">
-        {subject.name}
-      </NavLink>
-    </li>
-  ));
+  const navList = [];
+  const routes = [];
 
-  const routes = NotesConfig.sections.map((subject, idx) => (
-    <Route key={subject.subdirectory} path={`/${subject.subdirectory}`}>
-      <div id="content-wrapper">
-        <NotesPanel sectionConfig={NotesConfig.sections[idx]} />
-      </div>
-      <div id="active-nav-wrapper">
-        <ActiveNav sectionConfig={NotesConfig.sections[idx]} />
-      </div>
-    </Route>
-  ));
+  NotesConfig.sections.forEach((subject) => {
+    navList.push(
+      <li key={subject.name}>
+        <NavLink to={subject.subdirectory} activeClassName="selected">
+          {subject.name}
+        </NavLink>
+      </li>,
+    );
+
+    routes.push(
+      <Route key={subject.subdirectory} path={`/${subject.subdirectory}`}>
+        <div id="content-wrapper">
+          <NotesPanel sectionConfig={subject} />
+        </div>
+        <div id="active-nav-wrapper">
+          <ActiveNav sectionConfig={subject} />
+        </div>
+      </Route>,
+    );
+  });
 
   return (
     <Router>
