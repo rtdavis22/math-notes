@@ -36,3 +36,33 @@
          $3
        </p>
       '''
+
+  'Proposition':
+    'prefix': 'proposition'
+    'description': "The statement of a proposition"
+    'body': '''
+        <p>
+          <span class="result">Proposition.</span>
+          $1
+        </p>
+        '''
+
+  'Theorem':
+    'prefix': 'theorem'
+    'description': "The statement of a theorem"
+    'body': '''
+        <p>
+          <span class="result">Theorem.</span>
+          $1
+        </p>
+        '''
+
+  'Example':
+    'prefix': 'example'
+    'description': "An example"
+    'body': '''
+        <p>
+          <span class="result">Example.</span>
+          $1
+        </p>
+        '''
