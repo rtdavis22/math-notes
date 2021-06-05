@@ -1,94 +1,101 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
-    <title>Quotient Groups</title>
-  </head>
-  <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <p><strong>I.</strong></p>
-      <p>
-        Given any subgroup \(H\) of \(G\), an equivalence relation can be defined on \(G\) by
-	\[ a \equiv b \textrm{ if } b = ah \textrm{ for some } h \in H. \]
-        We briefly check that each of the required properties holds:
-	<ul>
-	  <li>Transitivity: If \(a \equiv b\) and \(b \equiv c\), then \(b = ah\) and \(c = bh'\) for some \(h\) and \(h'\) in \(H\). Thus, \(c = ahh'\) and \(a \equiv c\).</li>
-	  <li>Symmetry: If \(a \equiv b\), then \(b = ah\). So \(a = bh^{-1}\) and \(b \equiv a\).</li>
-	  <li>Reflexivity: Since \(a = ae\) and \(e \in H\), then \(a \equiv a\).</li>
-	</ul>
-      </p>
-      <p>
-        The equivalence classes of this equivalence relation are called the <strong>left cosets</strong> of H in G. If \(a \in H\), then
-	\[ aH = \{ah \mid h \in H\} \]
-	is a left coset. In particular, \(eH = H\) is one of the cosets.
-      </p>
-      <p>
-	Each left coset \(aH\) can be bijectively identified with \(H\) using the map \(aH \to H\) defined by multiplication on the left by \(a^{-1}\). The map is bijective since it can be inverted with multiplication by \(a\).
-	Thus, all left cosets have the same order.
-      </p>
-      <p>
-        The number of left cosets of a subgroup \(H\) in \(G\) is called the <strong>index</strong> of \(H\) in \(G\) and is denoted \([G \colon H]\).
-	Since all left cosets have the same order, we have the <strong>Counting Formula</strong>:
-	\[ \vert G \vert = \vert H \vert [G \colon H]. \]
-	From this it is clear that the order of \(H\) divides the order of \(G\) if \(G\) is finite. This is called <strong>Lagrange's Theorem</strong>. It follows that the order of any element in \(G\) divides the order of \(G\).
-      </p>
-      <p>Some examples:</p>
-      <ol>
-	<li>
-	  Let \(G\) be a finite group of prime order. Then the only subgroups of \(G\) are \(G\) and \(\{e\}\).  Furthermore, all non-trivial elements of \(G\) generate the group. That is, \(\langle g \rangle = G\) for \(g \neq e\).
-	</li>
-	<li>
-          <p>
-	    Let \(H\) be the kernel of a homomorphism \(f \colon G \to G'\). We show that the equivalence relation holds between two elements in \(G\) if and only if they have the same image under \(f\):
-	    <ul>
-	      <li>Assume \(a \equiv b\). Then \(b = ah\) for some \(h\) in \(H\). Thus,
-	      \[ f(b) = f(ah) = f(a)f(h) = f(a). \]
-	      </li>
-	      <li>Now assume \(f(b) = f(a)\). Then \(f(a^{-1}b) = e'\), so \(a^{-1}b = h\) for some \(h\) in \(H\). It follows that \(b = ah\) and \(a \equiv b\).
-	    </ul>
-	  </p>
-	  <p>
-	    This implies that the left cosets of \(H\) are in bijection with the image of \(f\). So
-	    \[ [ G \colon \textrm{ker } f] = \vert \textrm{im } f \vert. \]
-	    Combining this result with the Counting Formula, we have
-	    \[ \vert G \vert = \vert \textrm{ker } f \vert \cdot \vert \textrm{im } f \vert. \]
-	  </p>
-	</li>
-	<li>
-          The alternating group on \(n\) letters, \(A_{n}\), is by definition the kernel of the homomorphism \(f \colon S_{n} \to \langle \pm 1 \rangle\) defined in the previous section. Using the result from the previous example, we have \(\vert S_{n} \vert = \vert A_{n} \vert \cdot 2\), or \(\vert A_{n} \vert = \frac{n!}{2}\).
-	</li>
-      </ol>
-      <p><strong>II.</strong></p>
-      <p>
-        Example 2 above exhibits a bijection between the left cosets of the kernel \(H\) of a homomorphism  and its image. The group structure on the image allows us to define a group structure on the cosets. Namely, \(aH \cdot bH = abH\).
-      </p>
-      <p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
+  <title>Quotient Groups</title>
+</head>
+
+<body>
+  <div style="margin-left:auto;margin-right:auto;width:40em">
+    <p><strong>I.</strong></p>
+    <p>
+      Given any subgroup \(H\) of \(G\), an equivalence relation can be defined on \(G\) by
+      \[ a \equiv b \textrm{ if } b = ah \textrm{ for some } h \in H. \]
+      We briefly check that each of the required properties holds:
+    <ul>
+      <li>Transitivity: If \(a \equiv b\) and \(b \equiv c\), then \(b = ah\) and \(c = bh'\) for some \(h\) and \(h'\) in \(H\). Thus, \(c = ahh'\) and \(a \equiv c\).</li>
+      <li>Symmetry: If \(a \equiv b\), then \(b = ah\). So \(a = bh^{-1}\) and \(b \equiv a\).</li>
+      <li>Reflexivity: Since \(a = ae\) and \(e \in H\), then \(a \equiv a\).</li>
+    </ul>
+    </p>
+    <p>
+      The equivalence classes of this equivalence relation are called the <strong>left cosets</strong> of H in G. If \(a \in H\), then
+      \[ aH = \{ah \mid h \in H\} \]
+      is a left coset. In particular, \(eH = H\) is one of the cosets.
+    </p>
+    <p>
+      Each left coset \(aH\) can be bijectively identified with \(H\) using the map \(aH \to H\) defined by multiplication on the left by \(a^{-1}\). The map is bijective since it can be inverted with multiplication by \(a\).
+      Thus, all left cosets have the same order.
+    </p>
+    <p>
+      The number of left cosets of a subgroup \(H\) in \(G\) is called the <strong>index</strong> of \(H\) in \(G\) and is denoted \([G \colon H]\).
+      Since all left cosets have the same order, we have the <strong>Counting Formula</strong>:
+      \[ \vert G \vert = \vert H \vert [G \colon H]. \]
+      From this it is clear that the order of \(H\) divides the order of \(G\) if \(G\) is finite. This is called <strong>Lagrange's Theorem</strong>. It follows that the order of any element in \(G\) divides the order of \(G\).
+    </p>
+    <p>Some examples:</p>
+    <ol>
+      <li>
+        Let \(G\) be a finite group of prime order. Then the only subgroups of \(G\) are \(G\) and \(\{e\}\). Furthermore, all non-trivial elements of \(G\) generate the group. That is, \(\langle g \rangle = G\) for \(g \neq e\).
+      </li>
+      <li>
+        <p>
+          Let \(H\) be the kernel of a homomorphism \(f \colon G \to G'\). We show that the equivalence relation holds between two elements in \(G\) if and only if they have the same image under \(f\):
+        <ul>
+          <li>Assume \(a \equiv b\). Then \(b = ah\) for some \(h\) in \(H\). Thus,
+            \[ f(b) = f(ah) = f(a)f(h) = f(a). \]
+          </li>
+          <li>Now assume \(f(b) = f(a)\). Then \(f(a^{-1}b) = e'\), so \(a^{-1}b = h\) for some \(h\) in \(H\). It follows that \(b = ah\) and \(a \equiv b\).</li>
+        </ul>
+        </p>
+        <p>
+          This implies that the left cosets of \(H\) are in bijection with the image of \(f\). So
+          \[ [ G \colon \textrm{ker } f] = \vert \textrm{im } f \vert. \]
+          Combining this result with the Counting Formula, we have
+          \[ \vert G \vert = \vert \textrm{ker } f \vert \cdot \vert \textrm{im } f \vert. \]
+        </p>
+      </li>
+      <li>
+        The alternating group on \(n\) letters, \(A_{n}\), is by definition the kernel of the homomorphism \(f \colon S_{n} \to \langle \pm 1 \rangle\) defined in the previous section. Using the result from the previous example, we have \(\vert S_{n}
+        \vert = \vert A_{n} \vert \cdot 2\), or \(\vert A_{n} \vert = \frac{n!}{2}\).
+      </li>
+    </ol>
+    <p><strong>II.</strong></p>
+    <p>
+      Example 2 above exhibits a bijection between the left cosets of the kernel \(H\) of a homomorphism and its image. The group structure on the image allows us to define a group structure on the cosets. Namely, \(aH \cdot bH = abH\).
+    </p>
+    <p>
       For a general subgroup \(H\) of \(G\), there does not exist a similar group structure on the cosets. In particular, if \(aha^{-1} \notin H\) for some \(h \in H\), then
       \[ ah \in aH \textrm{ and } a^{-1}e \in a^{-1}H \textrm{, but } (ah)(a^{-1}e) = aha^{-1} \notin eH = H. \]
-      </p>
-      <p>
-        If we assume that \(H\) is normal, however, then we do get a group structure:
-        \[ (aH)(bH) = a(Hb)H = a(bH)H = abHH = abH. \]
-        (Note that normality implies \(bH = Hb\)).
-      </p>
-      <p>
-        With this group structure, we call the set of cosets of a normal subgroup \(H\) in \(G\) a <strong>quotient group</strong>, and denote it \(G/H\). A natural surjective group homomorphism \(\pi \colon G \to G/H\) maps \(a \mapsto aH\) and has kernel \(H\). So every normal subgroup is the kernel of a homomorphism.
-      </p>
-      <p>
-      As previously noted, the left cosets of \(\textrm{ker }f\) are in bijection with the image of \(f\). In other words, if \(H = \textrm{ker f}\), then \(\vert G/H \vert = \vert \textrm{im } f \vert\). We now show that these groups are isomorphic. Define the map \(\bar{f} \colon G/H \to \textrm{im } f\) by \(\bar{f} (aH) = f(a)\). Then
+    </p>
+    <p>
+      If we assume that \(H\) is normal, however, then we do get a group structure:
+      \[ (aH)(bH) = a(Hb)H = a(bH)H = abHH = abH. \]
+      (Note that normality implies \(bH = Hb\)).
+    </p>
+    <p>
+      With this group structure, we call the set of cosets of a normal subgroup \(H\) in \(G\) a <strong>quotient group</strong>, and denote it \(G/H\). A natural surjective group homomorphism \(\pi \colon G \to G/H\) maps \(a \mapsto aH\) and has
+      kernel \(H\). So every normal subgroup is the kernel of a homomorphism.
+    </p>
+    <p>
+      As previously noted, the left cosets of \(\textrm{ker }f\) are in bijection with the image of \(f\). In other words, if \(H = \textrm{ker f}\), then \(\vert G/H \vert = \vert \textrm{im } f \vert\). We now show that these groups are isomorphic.
+      Define the map \(\bar{f} \colon G/H \to \textrm{im } f\) by \(\bar{f} (aH) = f(a)\). Then
       \[ \bar{f} (abH) = f(ab) = f(a)f(b) = \bar{f} (aH)\bar{f} (bH). \]
       Thus \(G/H \simeq \textrm{im } f\). And if \(f\) is surjective, \(G/H \simeq G' \). This result is called the <strong>first isomorphism theorem</strong>. Note that \(f = \bar{f} \circ \pi\).
-      </p>
-      <p>
-        Examples:
-        <ol>
-          <li>The determinant is a surjective homomorphism \(GL_{n}(\mathbb{R}) \to \mathbb{R}^{\times}\) with kernel \(SL_{n}(\mathbb{R})\). So the quotient \(GL_{n}(\mathbb{R})/SL_{n}(\mathbb{R})\) is isomorphic to \(\mathbb{R}^{\times}\).  </li>
-          <li>The homomorphism \(f \colon \mathbb{C}^{\times} \to \mathbb{C}^{\times}\) with \(f(z) = z^{2}\) has kernel \(\{\pm 1\}\). Thus \(\mathbb{C}^{\times}/\{\pm 1\} \simeq \mathbb{C}^{\times}\).</li>
-        </ol>
-      </p>
-    </div>
-  </body>
+    </p>
+    <p>
+      Examples:
+    <ol>
+      <li>The determinant is a surjective homomorphism \(GL_{n}(\mathbb{R}) \to \mathbb{R}^{\times}\) with kernel \(SL_{n}(\mathbb{R})\). So the quotient \(GL_{n}(\mathbb{R})/SL_{n}(\mathbb{R})\) is isomorphic to \(\mathbb{R}^{\times}\). </li>
+      <li>The homomorphism \(f \colon \mathbb{C}^{\times} \to \mathbb{C}^{\times}\) with \(f(z) = z^{2}\) has kernel \(\{\pm 1\}\). Thus \(\mathbb{C}^{\times}/\{\pm 1\} \simeq \mathbb{C}^{\times}\).</li>
+    </ol>
+    </p>
+  </div>
+</body>
+
 </html>

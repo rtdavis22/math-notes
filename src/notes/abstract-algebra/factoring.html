@@ -1,126 +1,155 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
-    <title>Factoring</title>
-  </head>
-  <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <p>
-      The <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">Fundamental Theorem of Arithmetic</a> says that every positive integer can be written uniquely as the product of primes. We'd like to ask when something similar is true for other rings. We will introduce three classes of rings, each contained in the next: rings with a division-and-remainder algorithm (Euclidean Domains), rings in which every ideal is principal (Principal Ideal Domains), and rings with unique factorization into primes (Unique Factorization Domains).
-      </p>
-      <p><strong>I.</strong></p>
-      <p>
-        An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) \lt \sigma(a)\).
-      </p>
-      <p>
-        Some examples of Euclidean Domains:
-	<ol>
-	  <li><p>The integers \(\mathbb{Z}\) are a Euclidean domain with size function \(\sigma(a) = \vert a \vert\).</p></li>
-	  <li><p>A polynomial ring \(F[x]\) in one variable over a field \(F\) is a Euclidean domain with \(\sigma(f) = \textrm{degree of } f\).</p></li>
-	  <li>
-	    <p>
-	      The Gaussian integers \(Z[i]\) are a Euclidean domain with \(\sigma(a + bi) = \vert a + bi \vert ^{2} = a^2 + b^2\).
-	      <br />
-	      <i>Proof:</i> Let \(A,B \in \mathbb{Z}[i]\). There is some \(w \in \mathbb{Q}[i]\) with \(B = Aw\). In particular,
-	      \[ w = \frac{B}{A} = \frac{B\bar{A}}{A\bar{A}} = \frac{B\bar{A}}{\sigma(A)}.\]
-	      Now, write \(w = \alpha + \beta i\), where \(\alpha = \alpha_0 + r_0\) and \(\beta = \beta_0 + s_0\), with \(\alpha_0, \beta_0 \in \mathbb{Z}\) and \(\frac{1}{2} \lt r_0,s_0 \leq \frac{1}{2}\). Then
-	    \[ \begin{aligned} B = Aw &= A(\alpha + \beta i) \\ &= A(\alpha_0 + r_0) + A(\beta_0 + s_0)i \\ &= A(\alpha_0 + \beta_0 i) + A(r_0 + s_0 i). \end{aligned} \]
-	    Since \(B\) and \(A(\alpha_0 + \beta_0 i)\) are in \(\mathbb{Z}[i]\), so is \(A(r_0 + s_0 i)\). Finally,
-	    \[ \sigma(A(r_0 + s_0 i)) = \sigma(A)(r_0^2 + s_0^2) \leq \frac{1}{2}\sigma(A), \]
-	    where the equality holds because the modulus is multiplicative.
-	    </p>
-	  </li>
-	</ol>
-      </p>
-      <p><strong>II.</strong></p>
-      <p>
-        A Euclidean Domain \(R\) is a <strong>Principal Ideal Domain</strong> (or PID), a ring in which every ideal is principal.
-	<br />
-	<i>Proof:</i> Let \(A\) be a nonzero ideal of a Euclidean domain \(R\). Choose a nonzero element \(a\) such that \(\sigma(a)\) is as small as possible. We will show that \(A = (a)\).
-	<br />
-        Clearly, \((a) \subset A\). Take any element \(b\) of \(A\) and write \(b = aq + r\), where either \(r = 0\) or \(\sigma(r) \lt \sigma(a)\). Since \(b\) and \(aq\) are in \(A\), so is \(r\). Since \(\sigma(a)\) is minimal, we can't have \(\sigma(r) \lt \sigma(a)\). It follows that \(r = 0\), which means that \(a\) divides \(b\) and \(b \in (a)\).
-      </p>
-      <p>
-        A greatest common divisor (or gcd) of elements \(a\) and \(b\) in a ring is a nonzero element \(d\) with
-	<ul>
-	  <li>\(d \mid a\) and \(d \mid b\)</li>
-	  <li>if \(d' \mid a\) and \(d' \mid b\), then \(d' \mid d\).</li>
-	</ul>
-      </p>
-      <p>
-        Given an ideal \((a, b)\) in a PID \(R\), let \(d\) be a generator such that \((d) = (a, b)\). Then
-	<ol>
-	  <li>\(d\) is the gcd of \(a\) and \(b\)</li>
-	  <li>\(d\) can be written as a linear combination of \(a\) and \(b\): there are elements \(x\) and \(y\) in \(R\) with \(d = ax + by\)</li>
-	  <li>\(d\) is unique up to multiplication by a unit of \(R\)</li>
-	</ol>
-	<i>Proof:</i> <strong>(1)</strong> Since \((a) \subset (d)\), \(a \in (d)\) and so \(d \mid a\). Similarly, \(d \mid b\). If \(d' \mid a\) and \(d' \mid b\), then \(a \in (d')\) and \(b \in (d')\) and therefore \((d) = (a,b) \subset (d')\). It follows that \(d \in (d')\) and \(d' \mid d\).
-	<br />
-	<strong>(2)</strong> This follows from the statement that \((d) = (a,b)\).
-	<br />
-	<strong>(3)</strong> [todo]
-      </p>
-      <p><strong>III.</strong></p>
-      <p>
-        To begin discussing factorization, we start with some definitions.
-	<ul>
-	  <li>Elements \(a\) and \(b\) are <strong>associate</strong> if they differ by a unit. That is, there is some unit \(u\) with \(a = ub\). Equivalently, \((a) = (b)\).</li>
-	  <li>A nonzero element \(a\) is <strong>irreducible</strong> if its only divisors are units and associates. Equivalently, \((a) \subsetneq (1)\), and there is no principal ideal \((c)\) with \((a) \subsetneq (c) \subsetneq (1)\).</li>
-	  <li>
-	    A nonzero element \(p\) is a <strong>prime</strong> if \(p\) is not a unit and whenever \(p\) divides a product \(ab\), then \(p \mid a\) or \(p \mid b\). Equivalently, if \(ab \in (p)\), then \(a \in (p)\) or \(b \in (p)\).
-            <br />
-	    <br />
-	    An element \(p\) is prime in \(R\) if and only if \(R/(p)\) is an integral domain. If \(p\) is prime and \((a + (p))(b + (p)) = 0\), then \(ab + (p) = 0\), or \(p \mid ab\). Since \(p\) is prime, we know that \(p \mid a\) or \(p \mid b\) and hence \(a + (p) = 0\) or \(b + (p) = 0\). The other direction is proved similarly.
-	  </li>
-	</ul>
-      </p>
-      <p>
-        Let \(R\) be a Principal Ideal Domain.
-	<br />
-	<ol>
-	  <li>An element of \(R\) is irreducible if and only if it is a prime.</li>
-	  <li>The maximal ideals of \(R\) are the principal ideals generated by the irreducible elements.</li>
-	</ol>
-	<i>Proof:</i> <strong>(1)</strong> Suppose an irreducible element \(q\) divides a product \(ab\) and that \(q\) doesn't divide \(a\). We want to show that \(q\) divides \(b\). Let \(d\) be the gcd of \(a\) and \(q\). Since \(q\) is irreducible, its only divisors are units and associates. Since \(q\) does not divide \(a\), \(d\) is not an associate of \(q\). So \(d\) is a unit, \(q\) and \(a\) are relatively prime, and \(1 = ra + sq\) for some \(r\) and \(s\) in \(R\). Now multiply by \(b\): \(b = rab + sqb\). Both terms on the right are divisible by \(q\), so the left side is as well.
-	<br />
-	<strong>(2)</strong> From the definition of irreducible above, it's clear that the principal ideal generated by any element is maximal. Conversely, if an element \(b\) has a proper divisor \(a\), then \((b) \subsetneq (a) \subsetneq (1)\), so \((b)\) is not a maximal ideal.
-      </p>
-      <p>
-      It follows from the second claim that \(p\) is an irreducible element in a PID \(R\) if and only if \(R/(p)\) is a field. If \(p\) is an irreducible element and \(R/(p)\) is not a field, then \(R\) must not be a PID. For example, \(x\) is irreducible in \(\mathbb{Z}[x]\) and \(\mathbb{Z}[x]/(x)\) is not a field (it's isomorphic to \(\mathbb{Z}\)), so there must be non-principal ideals in \(\mathbb{Z}[x]\). In fact, the ideal \((2, x)\) is the kernel of the homomorphism \(\mathbb{Z}[x] \to \mathbb{Z}/2\mathbb{Z}\) mapping \(f(x) \mapsto f(0) \;(\bmod 2)\), and it is not the entire ring since it does not contain the constant polynomial 1.
-      </p>
-      <p>
-      Now, we are ready to define an analog to the Fundamental Theorem of Arithmetic. A <strong>unique factorization domain</strong> is an integral domain \(R\) in which every non-zero element of \(R\) can be written as a product of irreducible elements \(p_i\) of \(R\) and a unit \(u\):
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
+  <title>Factoring</title>
+</head>
+
+<body>
+  <div style="margin-left:auto;margin-right:auto;width:40em">
+    <p>
+      The <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">Fundamental Theorem of Arithmetic</a> says that every positive integer can be written uniquely as the product of primes. We'd like to ask when something similar is
+      true for other rings. We will introduce three classes of rings, each contained in the next: rings with a division-and-remainder algorithm (Euclidean Domains), rings in which every ideal is principal (Principal Ideal Domains), and rings with
+      unique factorization into primes (Unique Factorization Domains).
+    </p>
+    <p><strong>I.</strong></p>
+    <p>
+      An integral domain \(R\) is a <strong>Euclidean Domain</strong> if there is a size function \(\sigma\) such that division with remainder is possible, in the following sense. Let \(a\) and \(b\) be elements in \(R\), and suppose than \(a\) is
+      not zero. There are elements \(q\) and \(r\) in \(R\) such that \(b = aq + r\), and either \(r = 0\) or else \(\sigma(r) \lt \sigma(a)\).
+    </p>
+    <p>
+      Some examples of Euclidean Domains:
+    <ol>
+      <li>
+        <p>The integers \(\mathbb{Z}\) are a Euclidean domain with size function \(\sigma(a) = \vert a \vert\).</p>
+      </li>
+      <li>
+        <p>A polynomial ring \(F[x]\) in one variable over a field \(F\) is a Euclidean domain with \(\sigma(f) = \textrm{degree of } f\).</p>
+      </li>
+      <li>
+        <p>
+          The Gaussian integers \(Z[i]\) are a Euclidean domain with \(\sigma(a + bi) = \vert a + bi \vert ^{2} = a^2 + b^2\).
+          <br />
+          <i>Proof:</i> Let \(A,B \in \mathbb{Z}[i]\). There is some \(w \in \mathbb{Q}[i]\) with \(B = Aw\). In particular,
+          \[ w = \frac{B}{A} = \frac{B\bar{A}}{A\bar{A}} = \frac{B\bar{A}}{\sigma(A)}.\]
+          Now, write \(w = \alpha + \beta i\), where \(\alpha = \alpha_0 + r_0\) and \(\beta = \beta_0 + s_0\), with \(\alpha_0, \beta_0 \in \mathbb{Z}\) and \(\frac{1}{2} \lt r_0,s_0 \leq \frac{1}{2}\). Then
+          \[ \begin{aligned} B = Aw &= A(\alpha + \beta i) \\ &= A(\alpha_0 + r_0) + A(\beta_0 + s_0)i \\ &= A(\alpha_0 + \beta_0 i) + A(r_0 + s_0 i). \end{aligned} \]
+          Since \(B\) and \(A(\alpha_0 + \beta_0 i)\) are in \(\mathbb{Z}[i]\), so is \(A(r_0 + s_0 i)\). Finally,
+          \[ \sigma(A(r_0 + s_0 i)) = \sigma(A)(r_0^2 + s_0^2) \leq \frac{1}{2}\sigma(A), \]
+          where the equality holds because the modulus is multiplicative.
+        </p>
+      </li>
+    </ol>
+    </p>
+    <p><strong>II.</strong></p>
+    <p>
+      A Euclidean Domain \(R\) is a <strong>Principal Ideal Domain</strong> (or PID), a ring in which every ideal is principal.
+      <br />
+      <i>Proof:</i> Let \(A\) be a nonzero ideal of a Euclidean domain \(R\). Choose a nonzero element \(a\) such that \(\sigma(a)\) is as small as possible. We will show that \(A = (a)\).
+      <br />
+      Clearly, \((a) \subset A\). Take any element \(b\) of \(A\) and write \(b = aq + r\), where either \(r = 0\) or \(\sigma(r) \lt \sigma(a)\). Since \(b\) and \(aq\) are in \(A\), so is \(r\). Since \(\sigma(a)\) is minimal, we can't have
+      \(\sigma(r) \lt \sigma(a)\). It follows that \(r = 0\), which means that \(a\) divides \(b\) and \(b \in (a)\).
+    </p>
+    <p>
+      A greatest common divisor (or gcd) of elements \(a\) and \(b\) in a ring is a nonzero element \(d\) with
+    <ul>
+      <li>\(d \mid a\) and \(d \mid b\)</li>
+      <li>if \(d' \mid a\) and \(d' \mid b\), then \(d' \mid d\).</li>
+    </ul>
+    </p>
+    <p>
+      Given an ideal \((a, b)\) in a PID \(R\), let \(d\) be a generator such that \((d) = (a, b)\). Then
+    <ol>
+      <li>\(d\) is the gcd of \(a\) and \(b\)</li>
+      <li>\(d\) can be written as a linear combination of \(a\) and \(b\): there are elements \(x\) and \(y\) in \(R\) with \(d = ax + by\)</li>
+      <li>\(d\) is unique up to multiplication by a unit of \(R\)</li>
+    </ol>
+    <i>Proof:</i> <strong>(1)</strong> Since \((a) \subset (d)\), \(a \in (d)\) and so \(d \mid a\). Similarly, \(d \mid b\). If \(d' \mid a\) and \(d' \mid b\), then \(a \in (d')\) and \(b \in (d')\) and therefore \((d) = (a,b) \subset (d')\). It
+    follows that \(d \in (d')\) and \(d' \mid d\).
+    <br />
+    <strong>(2)</strong> This follows from the statement that \((d) = (a,b)\).
+    <br />
+    <strong>(3)</strong> [todo]
+    </p>
+    <p><strong>III.</strong></p>
+    <p>
+      To begin discussing factorization, we start with some definitions.
+    <ul>
+      <li>Elements \(a\) and \(b\) are <strong>associate</strong> if they differ by a unit. That is, there is some unit \(u\) with \(a = ub\). Equivalently, \((a) = (b)\).</li>
+      <li>A nonzero element \(a\) is <strong>irreducible</strong> if its only divisors are units and associates. Equivalently, \((a) \subsetneq (1)\), and there is no principal ideal \((c)\) with \((a) \subsetneq (c) \subsetneq (1)\).</li>
+      <li>
+        A nonzero element \(p\) is a <strong>prime</strong> if \(p\) is not a unit and whenever \(p\) divides a product \(ab\), then \(p \mid a\) or \(p \mid b\). Equivalently, if \(ab \in (p)\), then \(a \in (p)\) or \(b \in (p)\).
+        <br />
+        <br />
+        An element \(p\) is prime in \(R\) if and only if \(R/(p)\) is an integral domain. If \(p\) is prime and \((a + (p))(b + (p)) = 0\), then \(ab + (p) = 0\), or \(p \mid ab\). Since \(p\) is prime, we know that \(p \mid a\) or \(p \mid b\) and
+        hence \(a + (p) = 0\) or \(b + (p) = 0\). The other direction is proved similarly.
+      </li>
+    </ul>
+    </p>
+    <p>
+      Let \(R\) be a Principal Ideal Domain.
+      <br />
+    <ol>
+      <li>An element of \(R\) is irreducible if and only if it is a prime.</li>
+      <li>The maximal ideals of \(R\) are the principal ideals generated by the irreducible elements.</li>
+    </ol>
+    <i>Proof:</i> <strong>(1)</strong> Suppose an irreducible element \(q\) divides a product \(ab\) and that \(q\) doesn't divide \(a\). We want to show that \(q\) divides \(b\). Let \(d\) be the gcd of \(a\) and \(q\). Since \(q\) is irreducible,
+    its only divisors are units and associates. Since \(q\) does not divide \(a\), \(d\) is not an associate of \(q\). So \(d\) is a unit, \(q\) and \(a\) are relatively prime, and \(1 = ra + sq\) for some \(r\) and \(s\) in \(R\). Now multiply by
+    \(b\): \(b = rab + sqb\). Both terms on the right are divisible by \(q\), so the left side is as well.
+    <br />
+    <strong>(2)</strong> From the definition of irreducible above, it's clear that the principal ideal generated by any element is maximal. Conversely, if an element \(b\) has a proper divisor \(a\), then \((b) \subsetneq (a) \subsetneq (1)\), so
+    \((b)\) is not a maximal ideal.
+    </p>
+    <p>
+      It follows from the second claim that \(p\) is an irreducible element in a PID \(R\) if and only if \(R/(p)\) is a field. If \(p\) is an irreducible element and \(R/(p)\) is not a field, then \(R\) must not be a PID. For example, \(x\) is
+      irreducible in \(\mathbb{Z}[x]\) and \(\mathbb{Z}[x]/(x)\) is not a field (it's isomorphic to \(\mathbb{Z}\)), so there must be non-principal ideals in \(\mathbb{Z}[x]\). In fact, the ideal \((2, x)\) is the kernel of the homomorphism
+      \(\mathbb{Z}[x] \to \mathbb{Z}/2\mathbb{Z}\) mapping \(f(x) \mapsto f(0) \;(\bmod 2)\), and it is not the entire ring since it does not contain the constant polynomial 1.
+    </p>
+    <p>
+      Now, we are ready to define an analog to the Fundamental Theorem of Arithmetic. A <strong>unique factorization domain</strong> is an integral domain \(R\) in which every non-zero element of \(R\) can be written as a product of irreducible
+      elements \(p_i\) of \(R\) and a unit \(u\):
       \[ x = up_1p_2 \dotsb p_n. \]
       ...
-      </p>
-      <p><strong>IV.</strong></p>
-      <p>
-      We know that the Gaussian integers are a unique factorization domain since they are a Euclidean domain. This information isn't very useful unless we have an understanding of its units and primes. The units are the elements with a norm of 1: \(\pm 1\) and \(\pm i\). We investigate the Gauss primes below.
-      </p>
-      <p>
-        Let \(p\) be an integer prime. Then \(p\) is either a Gauss prime or the product \(\pi\bar{\pi}\) of a Gauss prime and its conjugate, and this accounts for all Gauss primes.
-	<br />
-	<i>Proof:</i> If \(p\) is an integer prime, it is not a unit in \(\mathbb{Z}[i]\) and so is divisible by a Gauss prime \(\pi\). Then \(\bar{\pi}\) divides \(\bar{p} = p\), and \(\pi\bar{\pi}\) divides \(p^2\). Therefore \(\pi\bar{\pi}\) is equal to \(p\) or \(p^2\). If \(\pi\bar{\pi} = p^2\), then \(\pi\) and \(p\) are associates, so \(p\) is a Gauss prime.
-	<br />
-	Furthermore, if \(\pi\) is any Gauss prime, then either \(\pi\bar{\pi}\) is an integer prime or \(\pi\) is an integer prime. Let \(\pi = a + bi\). Factor the positive integer \(\pi\bar{\pi} = a^2 + b^2\) in the ring of integers, and then factor in the integer primes in the Gaussian integers. Because the Gaussian integers have unique factorization, the Gaussian primes we obtain must be associates of \(\pi\) and \(\bar{\pi}\). Either \(\pi\bar{\pi}\) is an integer prime, or else it is the product of two integer primes. In the latter case, \(\pi\) must be an associate of one of the integer primes. (In fact, it must be an associate of both primes.)
-      </p>
-      <p>
-        An integer prime \(p\) is the product of conjugate Gaussian primes if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\).
-	<br />
-	<i>Proof:</i> First note that for any integer prime \(p\), \(p\) is the product of complex conjugate Gauss primes if and only if -1 is a square modulo \(p\):
-	\[ \begin{aligned} p = \pi\bar{\pi} & \Leftrightarrow \textrm{p is not a Gauss prime} \\ & \Leftrightarrow \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ & \Leftrightarrow \mathbb{F}_p[x]/(x^2 + 1) \simeq \mathbb{Z}[x]/(x^2 + 1, p) \simeq \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ & \Leftrightarrow x^2 + 1 \textrm{ is reducible in } \mathbb{F}_p[x] \\ & \Leftrightarrow x^2 + 1 = (x + q)(x - q) \textrm{ for some } q \in \mathbb{F}_p \\ & \Leftrightarrow q^2 = -1 \textrm{ in } \mathbb{F}_p. \end{aligned} \]
-      </p>
-      <p>
-        Now, we show that -1 is a square modulo \(p\) if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\). ...
-      </p>
-      <p>Note on Fermat's theorem...</p>
-      <p>
-        It follows that an integer prime \(p\) is a Gauss prime if and only if \(p \equiv 3 \;(\bmod 4)\).
-      </p>
-    </div>
-  </body>
+    </p>
+    <p><strong>IV.</strong></p>
+    <p>
+      We know that the Gaussian integers are a unique factorization domain since they are a Euclidean domain. This information isn't very useful unless we have an understanding of its units and primes. The units are the elements with a norm of 1:
+      \(\pm 1\) and \(\pm i\). We investigate the Gauss primes below.
+    </p>
+    <p>
+      Let \(p\) be an integer prime. Then \(p\) is either a Gauss prime or the product \(\pi\bar{\pi}\) of a Gauss prime and its conjugate, and this accounts for all Gauss primes.
+      <br />
+      <i>Proof:</i> If \(p\) is an integer prime, it is not a unit in \(\mathbb{Z}[i]\) and so is divisible by a Gauss prime \(\pi\). Then \(\bar{\pi}\) divides \(\bar{p} = p\), and \(\pi\bar{\pi}\) divides \(p^2\). Therefore \(\pi\bar{\pi}\) is
+      equal to \(p\) or \(p^2\). If \(\pi\bar{\pi} = p^2\), then \(\pi\) and \(p\) are associates, so \(p\) is a Gauss prime.
+      <br />
+      Furthermore, if \(\pi\) is any Gauss prime, then either \(\pi\bar{\pi}\) is an integer prime or \(\pi\) is an integer prime. Let \(\pi = a + bi\). Factor the positive integer \(\pi\bar{\pi} = a^2 + b^2\) in the ring of integers, and then factor
+      in the integer primes in the Gaussian integers. Because the Gaussian integers have unique factorization, the Gaussian primes we obtain must be associates of \(\pi\) and \(\bar{\pi}\). Either \(\pi\bar{\pi}\) is an integer prime, or else it is
+      the product of two integer primes. In the latter case, \(\pi\) must be an associate of one of the integer primes. (In fact, it must be an associate of both primes.)
+    </p>
+    <p>
+      An integer prime \(p\) is the product of conjugate Gaussian primes if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\).
+      <br />
+      <i>Proof:</i> First note that for any integer prime \(p\), \(p\) is the product of complex conjugate Gauss primes if and only if -1 is a square modulo \(p\):
+      \[ \begin{aligned} p = \pi\bar{\pi} &amp; \Leftrightarrow \textrm{p is not a Gauss prime} \\ &amp; \Leftrightarrow \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ &amp; \Leftrightarrow \mathbb{F}_p[x]/(x^2 + 1) \simeq \mathbb{Z}[x]/(x^2 + 1, p)
+      \simeq
+      \mathbb{Z}[i]/(p) \textrm{ is not a field} \\ &amp; \Leftrightarrow x^2 + 1 \textrm{ is reducible in } \mathbb{F}_p[x] \\ &amp; \Leftrightarrow x^2 + 1 = (x + q)(x - q) \textrm{ for some } q \in \mathbb{F}_p \\ &amp; \Leftrightarrow q^2 = -1
+      \textrm{
+      in }
+      \mathbb{F}_p. \end{aligned} \]
+    </p>
+    <p>
+      Now, we show that -1 is a square modulo \(p\) if and only if \(p = 2\) or \(p \equiv 1 \;(\bmod 4)\). ...
+    </p>
+    <p>Note on Fermat's theorem...</p>
+    <p>
+      It follows that an integer prime \(p\) is a Gauss prime if and only if \(p \equiv 3 \;(\bmod 4)\).
+    </p>
+  </div>
+</body>
+
 </html>

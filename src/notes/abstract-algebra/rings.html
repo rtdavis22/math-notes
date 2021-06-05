@@ -1,98 +1,103 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
-    <title>Rings</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <span>
-        A <strong>ring</strong> is a set \(R\) with binary operations addition and multiplication satisfying the following properties:
-	<ol>
-	  <li>
-	    Under addition, \(R\) is an abelian group. Its identity is denoted 0.
-	  </li>
-	  <li>
-	      Multiplication is associative and has an identity called 1:
-              <ul>
-		<li>For all \(a, b, c\) in \(R\), \((ab)c = a(bc)\).</li>
-		<li>For all \(a\) in \(R\), \(a1 = 1a = a\).</li>
-	      </ul>
-	  </li>
-          <li>
-              Multiplication is distributive with respect to addition. For all \(a, b, c\) in \(R\),
-	      <ul>
-	        <li>\(a(b + c) = ab + ac\)</li>
-	        <li>\((b + c)a = ba + ca\)</li>
-	      </ul>
-	  </li>
-	</ol>
-      </span>
-      <p>
-        If multiplication is commutative, the ring is called a commutative ring. Since these are the primary object of our study, we assume rings are commutative unless otherwise noted.
-      </p>
-      <p>
-        A <strong>subring</strong> of a ring \(R\) is a subset of \(R\) that is itself a ring when addition and multiplication in \(R\) are restricted to the subset, and which shares the same multiplicative identity as \(R\).
-      </p>
-      <p>
-        A <strong>unit</strong> of a ring \(R\) is an element that has a multiplicative inverse. These elements form a group under multiplication called the <strong>unit group</strong> of \(R\), denoted \(R^{\times}\).
-      </p>
-      <hr />
-      <p>
-        Some examples of rings are listed below.
-	<ol>
-          <li>
-	    <p>The complex numbers \(\mathbb{C}\) form a ring, with subrings \(\mathbb{R}\), \(\mathbb{Q}\), and \(\mathbb{Z}\).</p>
-	  </li>
-	  <li>
-	    <p>The Gaussian integers \(\mathbb{Z} + \mathbb{Z}i\) form a ring which is also a subring of \(\mathbb{C}\). Its unit group is \(\langle \pm 1, \pm i \rangle\).</p>
-	  </li>
-	  <li>
-	    <p>\(\mathbb{Z}/n\mathbb{Z}\) is a ring for any \(n > 0\). Its unit group has \(\varphi(n)\) elements, where \(\varphi\) is Euler's totient function.</p>
-	  </li>
-	  <li>
-	    <p>
-	      If \(R\) is a ring, then the set of polynomials in a variable \(x\) over \(R\) forms a ring denoted \(R[x]\):
-	      \[ R[x] = \{a_0 + a_1x + a_2x^2 + \dotsb + a_nx^n \mid a_i \in R\}. \]
-	      It follows that polynomials in variables \(x\) and \(y\) form a ring, since \(R[x][y]\) is a ring. This ring is also denoted \(R[x, y]\).
-	    </p>
-	  </li>
-	  <li>
-	    <p>The <strong>zero ring</strong> is the ring that only contains the element 0. This is the only ring in which \(1 = 0\).</p>
-	  </li>
-	  <li>
-	    <p>A field is a ring in which every nonzero element has a multiplicative inverse. That is, \(F^{\times} = F - \{0\}\).</p>
-	  </li>
-	  <li>
-	    <p>
-              For any abelian group \((A, +, 0)\), the set of homomorphisms from \(A\) to itself forms a ring called the endomorphism ring of \(A\), or End(\(A\)). These rings are usually non-commutative.
-	    </p>
-	    <p>
-		  Addition of homomorphisms \(f\) and \(g\) is defined pointwise:
-	          \[ (f + g)(a) = f(a) + g(a). \]
-		  The additive identity is the homomorphism with \(0(a) = 0\).
-		  Multiplication of homomorphisms \(f\) and \(g\) is defined as composition of homomorphisms:
-		  \[ (fg)(a) = f(g(a)). \]
-  		  The multiplicative identity is the identity homomorphism \(1(a) = a\).
-	    </p>
-	    <p>
-	      The units of an endomorphism ring are the isomorphisms.
-	    </p>
-	    <p>
-	      The zero ring is the endomorphism ring of the zero group.
-	    </p>
-	    <p>
-	      The ring of integers \(\mathbb{Z}\) is the endomorphism ring of the group \(\mathbb{Z}\) under addition. Any homomorphism \(f \colon \mathbb{Z} \to \mathbb{Z}\) is completely determined by the integer \(f(1)\), and we can bijectively identify homomorphisms with integers in this way.
-	    </p>
-	  </li>
-	  <li>
-	    <p>The set of matrices with dimension \(n\) over a field \(F\), \(M_n(F)\), is a non-commutative ring with unit group \(GL_n(F)\).</p>
-	  </li>
-        </ol>
-      </p>
-    </div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
+  <title>Rings</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <span>
+      A <strong>ring</strong> is a set \(R\) with binary operations addition and multiplication satisfying the following properties:
+      <ol>
+        <li>
+          Under addition, \(R\) is an abelian group. Its identity is denoted 0.
+        </li>
+        <li>
+          Multiplication is associative and has an identity called 1:
+          <ul>
+            <li>For all \(a, b, c\) in \(R\), \((ab)c = a(bc)\).</li>
+            <li>For all \(a\) in \(R\), \(a1 = 1a = a\).</li>
+          </ul>
+        </li>
+        <li>
+          Multiplication is distributive with respect to addition. For all \(a, b, c\) in \(R\),
+          <ul>
+            <li>\(a(b + c) = ab + ac\)</li>
+            <li>\((b + c)a = ba + ca\)</li>
+          </ul>
+        </li>
+      </ol>
+    </span>
+    <p>
+      If multiplication is commutative, the ring is called a commutative ring. Since these are the primary object of our study, we assume rings are commutative unless otherwise noted.
+    </p>
+    <p>
+      A <strong>subring</strong> of a ring \(R\) is a subset of \(R\) that is itself a ring when addition and multiplication in \(R\) are restricted to the subset, and which shares the same multiplicative identity as \(R\).
+    </p>
+    <p>
+      A <strong>unit</strong> of a ring \(R\) is an element that has a multiplicative inverse. These elements form a group under multiplication called the <strong>unit group</strong> of \(R\), denoted \(R^{\times}\).
+    </p>
+    <hr />
+    <p>
+      Some examples of rings are listed below.
+    <ol>
+      <li>
+        <p>The complex numbers \(\mathbb{C}\) form a ring, with subrings \(\mathbb{R}\), \(\mathbb{Q}\), and \(\mathbb{Z}\).</p>
+      </li>
+      <li>
+        <p>The Gaussian integers \(\mathbb{Z} + \mathbb{Z}i\) form a ring which is also a subring of \(\mathbb{C}\). Its unit group is \(\langle \pm 1, \pm i \rangle\).</p>
+      </li>
+      <li>
+        <p>\(\mathbb{Z}/n\mathbb{Z}\) is a ring for any \(n &gt; 0\). Its unit group has \(\varphi(n)\) elements, where \(\varphi\) is Euler's totient function.</p>
+      </li>
+      <li>
+        <p>
+          If \(R\) is a ring, then the set of polynomials in a variable \(x\) over \(R\) forms a ring denoted \(R[x]\):
+          \[ R[x] = \{a_0 + a_1x + a_2x^2 + \dotsb + a_nx^n \mid a_i \in R\}. \]
+          It follows that polynomials in variables \(x\) and \(y\) form a ring, since \(R[x][y]\) is a ring. This ring is also denoted \(R[x, y]\).
+        </p>
+      </li>
+      <li>
+        <p>The <strong>zero ring</strong> is the ring that only contains the element 0. This is the only ring in which \(1 = 0\).</p>
+      </li>
+      <li>
+        <p>A field is a ring in which every nonzero element has a multiplicative inverse. That is, \(F^{\times} = F - \{0\}\).</p>
+      </li>
+      <li>
+        <p>
+          For any abelian group \((A, +, 0)\), the set of homomorphisms from \(A\) to itself forms a ring called the endomorphism ring of \(A\), or End(\(A\)). These rings are usually non-commutative.
+        </p>
+        <p>
+          Addition of homomorphisms \(f\) and \(g\) is defined pointwise:
+          \[ (f + g)(a) = f(a) + g(a). \]
+          The additive identity is the homomorphism with \(0(a) = 0\).
+          Multiplication of homomorphisms \(f\) and \(g\) is defined as composition of homomorphisms:
+          \[ (fg)(a) = f(g(a)). \]
+          The multiplicative identity is the identity homomorphism \(1(a) = a\).
+        </p>
+        <p>
+          The units of an endomorphism ring are the isomorphisms.
+        </p>
+        <p>
+          The zero ring is the endomorphism ring of the zero group.
+        </p>
+        <p>
+          The ring of integers \(\mathbb{Z}\) is the endomorphism ring of the group \(\mathbb{Z}\) under addition. Any homomorphism \(f \colon \mathbb{Z} \to \mathbb{Z}\) is completely determined by the integer \(f(1)\), and we can bijectively
+          identify homomorphisms with integers in this way.
+        </p>
+      </li>
+      <li>
+        <p>The set of matrices with dimension \(n\) over a field \(F\), \(M_n(F)\), is a non-commutative ring with unit group \(GL_n(F)\).</p>
+      </li>
+    </ol>
+    </p>
+  </div>
+</body>
+
 </html>

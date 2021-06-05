@@ -4,7 +4,7 @@
   "description": "https://robs-math-notes.herokuapp.com/",
   "main": "babel.config.js",
   "scripts": {
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js && htmlhint src/**/*.html",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "serve": "webpack serve --open",
@@ -36,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "htmlhint": "^0.14.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",

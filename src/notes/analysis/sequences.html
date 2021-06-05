@@ -1,54 +1,60 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
-    <title>Sequences</title>
-  </head>
-  <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <h3>Sequences</h3>
-      <p><strong>I.</strong></p>
-      <p>
-        A sequence of real numbers \(a_n\) is a <strong>Cauchy sequence</strong> if for every \(\varepsilon \gt 0\), there is an \(N\) such that \(\vert a_n - a_{n'} \vert \leq \varepsilon\) for all \(n, n' \geq N\).
-      </p>
-      <p>
-      A sequence \(a_n\) <strong>converges</strong> to a real number \(L\) if for every \(\varepsilon \gt 0\), there is an \(N\) such that \(\vert a_n - L \vert \leq \varepsilon\) for every \(n \geq N\). It is not possible for a sequence to converge to two distinct real numbers. If \(a_n\) converges to \(L\), we say that the <strong>limit</strong> of \(a_n\) is \(L\) and write \(L = \lim_{n \to \infty} a_n\).
-      </p>
-      <p>
-        Convergent sequences are Cauchy.
-      </p>
-      <p>
-        A sequence \(a_n\) is <strong>bounded</strong> by a real number \(M\) if \(\vert a_n \vert \lt M\) for all \(n\). We say that a sequence is bounded if it is bounded by some \(M \gt 0\).
-      </p>
-      <p>
-        Convergent sequences are bounded.
-      </p>
-      <p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
+  <title>Sequences</title>
+</head>
+
+<body>
+  <div style="margin-left:auto;margin-right:auto;width:40em">
+    <h3>Sequences</h3>
+    <p><strong>I.</strong></p>
+    <p>
+      A sequence of real numbers \(a_n\) is a <strong>Cauchy sequence</strong> if for every \(\varepsilon \gt 0\), there is an \(N\) such that \(\vert a_n - a_{n'} \vert \leq \varepsilon\) for all \(n, n' \geq N\).
+    </p>
+    <p>
+      A sequence \(a_n\) <strong>converges</strong> to a real number \(L\) if for every \(\varepsilon \gt 0\), there is an \(N\) such that \(\vert a_n - L \vert \leq \varepsilon\) for every \(n \geq N\). It is not possible for a sequence to converge
+      to two distinct real numbers. If \(a_n\) converges to \(L\), we say that the <strong>limit</strong> of \(a_n\) is \(L\) and write \(L = \lim_{n \to \infty} a_n\).
+    </p>
+    <p>
+      Convergent sequences are Cauchy.
+    </p>
+    <p>
+      A sequence \(a_n\) is <strong>bounded</strong> by a real number \(M\) if \(\vert a_n \vert \lt M\) for all \(n\). We say that a sequence is bounded if it is bounded by some \(M \gt 0\).
+    </p>
+    <p>
+      Convergent sequences are bounded.
+    </p>
+    <p>
       Let \(x = \lim_{n \to \infty} a_n\) and \(y = \lim_{n \to \infty} b_n\). We have the following limit laws:
-	<ol>
-	  <li>\(\lim_{n \to \infty} (a_n + b_n) = x + y\).</li>
-	  <li>\(\lim_{n \to \infty} (a_nb_n) = xy\).</li>
-	  <li>For any real number \(c\), \(\lim_{n \to \infty} (ca_n) = cx\).</li>
-	  <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(\lim_{n \to \infty} b_n^{-1} = y^{-1}\).</li>
-	  <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(lim_{n \to \infty} \frac{a_n}{b_n} = \frac{x}{y}\).</li>
-	  <li>\(\lim_{n \to \infty} \max(a_n, b_n) = \max(x, y)\).</li>
-	  <li>\(\lim_{n \to \infty} \min(a_n, b_n) = \min(x, y)\).</li>
-	</ol>
-      </p>
-      <p>
-      An upper bound \(M\) of a set of real numbers \(E\) is called the <strong>supremum</strong> of \(E\) if any other upper bound \(M'\) of \(E\) is larger than \(M\). The supremum of a set \(E\) is denoted \(\sup(E)\). Similarly, the <strong>infimum</strong> of a set \(E\) is the greatest lower bound of \(E\) and can be defined by the formula \(\inf(E) = -\sup(-E)\). The supremum and infimum of a sequence \(a_n\) are the supremum and infimum of the set \(\{a_n\}\).
-      </p>
-      <p>
-        Monotone bounded sequences converge.
-      </p>
-      <p><strong>II.</strong></p>
-      <p>
-        A real number \(x\) is a <strong>limit point</strong> of a sequence \(a_n\) if for every \(\varepsilon \gt 0\) and integer \(N\), there is an \(n \geq N\) such that \(\vert a_n - x \vert \leq \varepsilon\). For example, if the limit of a sequence exists, then it is a limit point.
-      </p>
-      <p>
+    <ol>
+      <li>\(\lim_{n \to \infty} (a_n + b_n) = x + y\).</li>
+      <li>\(\lim_{n \to \infty} (a_nb_n) = xy\).</li>
+      <li>For any real number \(c\), \(\lim_{n \to \infty} (ca_n) = cx\).</li>
+      <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(\lim_{n \to \infty} b_n^{-1} = y^{-1}\).</li>
+      <li>If \(y \neq 0\) and \(b_n \neq 0\), then \(lim_{n \to \infty} \frac{a_n}{b_n} = \frac{x}{y}\).</li>
+      <li>\(\lim_{n \to \infty} \max(a_n, b_n) = \max(x, y)\).</li>
+      <li>\(\lim_{n \to \infty} \min(a_n, b_n) = \min(x, y)\).</li>
+    </ol>
+    </p>
+    <p>
+      An upper bound \(M\) of a set of real numbers \(E\) is called the <strong>supremum</strong> of \(E\) if any other upper bound \(M'\) of \(E\) is larger than \(M\). The supremum of a set \(E\) is denoted \(\sup(E)\). Similarly, the
+      <strong>infimum</strong> of a set \(E\) is the greatest lower bound of \(E\) and can be defined by the formula \(\inf(E) = -\sup(-E)\). The supremum and infimum of a sequence \(a_n\) are the supremum and infimum of the set \(\{a_n\}\).
+    </p>
+    <p>
+      Monotone bounded sequences converge.
+    </p>
+    <p><strong>II.</strong></p>
+    <p>
+      A real number \(x\) is a <strong>limit point</strong> of a sequence \(a_n\) if for every \(\varepsilon \gt 0\) and integer \(N\), there is an \(n \geq N\) such that \(\vert a_n - x \vert \leq \varepsilon\). For example, if the limit of a
+      sequence exists, then it is a limit point.
+    </p>
+    <p>
       The <strong>limit superior</strong> of a sequence \(a_n\) is defined
       \[ \limsup\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} (\sup\limits_{m \geq n} a_m). \]
       Note that the sequence on the right is a decreasing sequence. Similarly, the <strong>limit inferior</strong> is defined
@@ -56,36 +62,39 @@
       For example, consider the sequence
       \[ 1.1, -1.01, 1.001, -1.0001, 1.00001, \ldots\]
       The limit superior of this sequence is 1 and the limit inferior is -1.
-      </p>
-      <p>
-        Let \(a_n\) be a sequence with limit superior \(L^+\) and limit inferior \(L^-\). We have the following properties:
-	<ol>
-	  <li>For every \(x \gt L^+\), there is an \(N\) such that \(a_n \lt x\) for all \(n \geq N\). Similarly, for every \(x \lt L^-\), there is an \(N\) such that \(a_n \gt x\) for all \(n \geq N\).</li>
-	  <li>For every \(x \lt L^+\) and every \(N\), there is an \(n \geq N\) such that \(a_n \gt x\). Similarly, for every \(x \gt L^-\) and every \(N\), there is an \(n \geq N\) such that \(a_n \lt x\).</li>
-	  <li>\(\inf a_n \leq L^- \leq L^+ \leq \sup a_n\).</li>
-	  <li>If \(c\) is any limit point of \(a_n\), then \(L^- \leq c \leq L+\).</li>
-	  <li>If \(L^+\) is finite, then it is a limit point of \(a_n\). Similarly, if \(L^-\) is finite, then it is a limit point of \(a_n\).</li>
-	  <li>If \(a_n\) converges to \(c\), then \(L^+ = L^- = c\). Conversely, if \(L^+ = L^- = c\), then \(a_n\) converges to \(c\).</li>
-	</ol>
-      </p>
-      <p>
-        The comparison principle says that if \(a_n \leq b_n\), then we have the following:
-	<ol>
-	  <li>\(\sup a_n \leq \sup b_n\)</li>
-	  <li>\(\inf a_n \leq \inf b_n\)</li>
-	  <li>\(\limsup_{n \to \infty} a_n \leq \limsup_{n \to \infty} b_n\)</li>
-	  <li>\(\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} b_n\)</li>
-	</ol>
-      </p>
-      <p>
-      The <strong>squeeze test</strong> follows: if \(a_n \leq b_n \leq c_n\) and \(a_n\) and \(c_n\) both converge to \(L\), then \(b_n\) also converges to \(L\). And from this follows the <strong>zero test</strong>: the limit \(\lim_{n \to \infty} a_n\) exists and is equal to zero if and only if \(\lim_{n \to \infty} \vert a_n \vert\) exists and is equal to zero.
-      </p>
-      <p>A sequence \(a_n\) is convergent if and only if it is a Cauchy sequence.</p>
-      <p><strong>III.</strong></p>
-      <p>Let \(a_n\) and \(b_n\) be sequences. We say that \(b_n\) is a <strong>subsequence</strong> of \(a_n\) if there is a function \(f \colon \mathbb{N} \to \mathbb{N}\) which is strictly increasing such that \(b_n = a_{f(n)}\) for all \(n \in \mathbb{N}\).</p>
-      <p>A sequence \(a_n\) converges to \(L\) if and only if every subsequence of \(a_n\) converges to \(L\).</p>
-      <p>A real number \(L\) is a limit point of \(a_n\) if and only if there exists a subsequence of \(a_n\) which converges to \(L\).</p>
-      <p><strong>(Bolzano-Weierstrass Theorem).</strong> Every bounded sequence has at least one convergent subsequence.</p>
-    </div>
-  </body>
+    </p>
+    <p>
+      Let \(a_n\) be a sequence with limit superior \(L^+\) and limit inferior \(L^-\). We have the following properties:
+    <ol>
+      <li>For every \(x \gt L^+\), there is an \(N\) such that \(a_n \lt x\) for all \(n \geq N\). Similarly, for every \(x \lt L^-\), there is an \(N\) such that \(a_n \gt x\) for all \(n \geq N\).</li>
+      <li>For every \(x \lt L^+\) and every \(N\), there is an \(n \geq N\) such that \(a_n \gt x\). Similarly, for every \(x \gt L^-\) and every \(N\), there is an \(n \geq N\) such that \(a_n \lt x\).</li>
+      <li>\(\inf a_n \leq L^- \leq L^+ \leq \sup a_n\).</li>
+      <li>If \(c\) is any limit point of \(a_n\), then \(L^- \leq c \leq L+\).</li>
+      <li>If \(L^+\) is finite, then it is a limit point of \(a_n\). Similarly, if \(L^-\) is finite, then it is a limit point of \(a_n\).</li>
+      <li>If \(a_n\) converges to \(c\), then \(L^+ = L^- = c\). Conversely, if \(L^+ = L^- = c\), then \(a_n\) converges to \(c\).</li>
+    </ol>
+    </p>
+    <p>
+      The comparison principle says that if \(a_n \leq b_n\), then we have the following:
+    <ol>
+      <li>\(\sup a_n \leq \sup b_n\)</li>
+      <li>\(\inf a_n \leq \inf b_n\)</li>
+      <li>\(\limsup_{n \to \infty} a_n \leq \limsup_{n \to \infty} b_n\)</li>
+      <li>\(\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} b_n\)</li>
+    </ol>
+    </p>
+    <p>
+      The <strong>squeeze test</strong> follows: if \(a_n \leq b_n \leq c_n\) and \(a_n\) and \(c_n\) both converge to \(L\), then \(b_n\) also converges to \(L\). And from this follows the <strong>zero test</strong>: the limit \(\lim_{n \to \infty}
+      a_n\) exists and is equal to zero if and only if \(\lim_{n \to \infty} \vert a_n \vert\) exists and is equal to zero.
+    </p>
+    <p>A sequence \(a_n\) is convergent if and only if it is a Cauchy sequence.</p>
+    <p><strong>III.</strong></p>
+    <p>Let \(a_n\) and \(b_n\) be sequences. We say that \(b_n\) is a <strong>subsequence</strong> of \(a_n\) if there is a function \(f \colon \mathbb{N} \to \mathbb{N}\) which is strictly increasing such that \(b_n = a_{f(n)}\) for all \(n \in
+      \mathbb{N}\).</p>
+    <p>A sequence \(a_n\) converges to \(L\) if and only if every subsequence of \(a_n\) converges to \(L\).</p>
+    <p>A real number \(L\) is a limit point of \(a_n\) if and only if there exists a subsequence of \(a_n\) which converges to \(L\).</p>
+    <p><strong>(Bolzano-Weierstrass Theorem).</strong> Every bounded sequence has at least one convergent subsequence.</p>
+  </div>
+</body>
+
 </html>

@@ -1,98 +1,104 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css"/>
-    <title>Conjugation</title>
-  </head>
-  <body>
-    <div style="margin-left:auto;margin-right:auto;width:40em">
-      <p>
-        One of the most interesting ways a group \(G\) acts on itself is by <strong>conjugation</strong>:
-        \[ g(s) = gsg^{-1}. \]
-      </p>
-      <p>
-        The stabilizer of an element \(s\) of \(G\) is called the <strong>centralizer</strong> of \(s\) and is denoted \(Z(s)\):
-	\[ Z(s) = \{g \mid gsg^{-1} = s \} = \{g \mid gs = sg\}. \]
-        These are the elements in \(G\) that commute with \(s\). Since the identity commutes with everything, we have \(G_{e} = Z(e) = G\). Note that the centralizer of any element contains the center of the group \(Z\).
-	Also note that for any \(s \in G\), \(\langle s \rangle \subset Z(s)\), so \(\vert s \vert\) divides \(\vert Z(s) \vert\).
-      </p>
-      <p>
-        The orbit of an element \(s\) is called the <strong>conjugacy class</strong> of \(s\) and is denoted \(C(s)\):
-	\[ C(s) = \{s' \mid s' = gsg^{-1} \textrm{ for some } g \in G\}. \]
-        Note that \(O_{e} = C(e) = \{e\}\). In other words, nothing except the identity can be conjugated into the identity. This is also true for all other elements in the center of \(G\).
-      </p>
-      <p>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
+  <title>Conjugation</title>
+</head>
+
+<body>
+  <div style="margin-left:auto;margin-right:auto;width:40em">
+    <p>
+      One of the most interesting ways a group \(G\) acts on itself is by <strong>conjugation</strong>:
+      \[ g(s) = gsg^{-1}. \]
+    </p>
+    <p>
+      The stabilizer of an element \(s\) of \(G\) is called the <strong>centralizer</strong> of \(s\) and is denoted \(Z(s)\):
+      \[ Z(s) = \{g \mid gsg^{-1} = s \} = \{g \mid gs = sg\}. \]
+      These are the elements in \(G\) that commute with \(s\). Since the identity commutes with everything, we have \(G_{e} = Z(e) = G\). Note that the centralizer of any element contains the center of the group \(Z\).
+      Also note that for any \(s \in G\), \(\langle s \rangle \subset Z(s)\), so \(\vert s \vert\) divides \(\vert Z(s) \vert\).
+    </p>
+    <p>
+      The orbit of an element \(s\) is called the <strong>conjugacy class</strong> of \(s\) and is denoted \(C(s)\):
+      \[ C(s) = \{s' \mid s' = gsg^{-1} \textrm{ for some } g \in G\}. \]
+      Note that \(O_{e} = C(e) = \{e\}\). In other words, nothing except the identity can be conjugated into the identity. This is also true for all other elements in the center of \(G\).
+    </p>
+    <p>
       Elements in the same conjugacy class have the same order. If \(g' = hgh^{-1}\) and \(g\) has order \(k\), then
       \[ (g')^{k} = (hgh^{-1})^{k} = hg^{k}h^{-1} = hh^{-1} = e, \]
       so \(\vert g' \vert \le \vert g \vert\). Similarly, \(\vert g \vert \le \vert g' \vert\).
-      </p>
-      <p>
-        The counting formula tells us that for all \(s \in G\),
-	\[ \vert G \vert = \vert Z(s) \vert \vert C(s) \vert . \]
-	It follows that the order of every conjugacy class divides the order of the group.
-      </p>
-      <p>
-        The <strong>class equation</strong> of a finite group is defined to be the summation of the orders of the conjugacy classes \(C_{1}, \dotsc, C_{k}\):
-	\[ \vert G \vert = \vert C_{1} \vert + \dotsb + \vert C_{k} \vert = \sum_{s \in Z} 1 + \dotsb + \vert C_{k} \vert . \]
-        Given representatives from each conjugacy class \(g_{1}, \dotsc, g_{k}\), we can write this:
-	\[ \vert G \vert = \vert C(g_{1}) \vert + \dotsb + \vert C(g_{k}) \vert = \frac{\vert G \vert}{\vert Z(g_{1}) \vert} + \dotsb + \frac{\vert G \vert}{\vert Z(g_{k}) \vert} = \vert G \vert \sum_{i = 1}^{k} \frac{1}{Z(g_{i})}  .\]
-      </p>
-      <p>
-        Examples:
-        <ol>
-          <li>In an abelian group, each element is in its own conjugacy class and the class equation has all 1's.</li>
-	  <li>
-	    <p>
-	      The symmetric group \(S_{3}\) has order 6. Since \(Z(S_{3}) = \{e\}\), the class equation looks like
-	      \[ 6 = 1 + \dotsb , \]
-	      where the other terms are not 1.
-	    </p>
-	    <p>
-	      Let \(\sigma = (1 2 3)\). Since \(\vert \sigma \vert = 3\), \(\vert C(\sigma) \vert\) must be 3 or 6. But it can't be 6 because \(C(\sigma)\) doesn't contain \(\{e\}\). So \(\vert C(\sigma) \vert = 3\) and the class equation becomes
-	      \[ 6 = 1 + 3 + \dotsb . \]
-	      This forces the remaining term to be 2. The full class equation (reordered) is
-	      \[ 6 = 1 + 2 + 3 . \]
-	    </p>
-	  </li>
-	  <li>
-            <p>
-	    In the previous section, we said that the rotation group which preserves the regular dodecahedron is \(A_{5}\), which has order 60. The elements of this group can be classified as follows:
-	      <ul>
-	        <li>the identity</li>
-		<li>the 24 non-trivial elements which stabilize the 6 pairs of opposite faces, which have order 5</li>
-		<li>the 15 non-trivial elements which stabilize the 15 pairs of opposite edges, which have order 2</li>
-		<li>the 20 non-trivial elements which stabilize the 20 pairs of opposite vertices, which have order 3</li>
-	      </ul>
-	      ...
-	    </p>
-          </li>
-	  <li>
-	    <p>
-	      Any group of prime power order has a non-trivial center.
-	    </p>
-	    <p>
-	      Let \(\vert G \vert = p^{e}\) with \(e \ge 1\). Every term on the right side of the class equation must divide \(p^{e}\). Since every term with a power of 1 or more on the right side divides \(p\), the number of 1's must also divide \(p\). So the center must be non-trivial.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      Every group of order \(p^{2}\) is abelian.
-	    </p>
-	    <p>
-	      Let \(G\) be a group of order \(p^{2}\). We know its center \(Z\) is not trivial, so it must have order \(p\) or \(p^{2}\). If it has order \(p^{2}\), then \(Z = G\) and \(G\) is abelian.
-	    </p>
-	    <p>
-	      Now suppose the order of \(Z\) is \(p\), and take any element \(x\) not in \(Z\). The centralizer \(Z(x)\) contains \(x\) as well as \(Z\), so its order is strictly larger than \(p\). Since the order of \(Z(x)\) must divide \(p^{2}\), we must have \(Z(x) = G\). But this implies that \(x\) is in the center, which is a contradiction.
-	    </p>
-	  </li>
-	  <li>
-	    <p>conjugation in the symmetric group...</p>
-	  </li>
-	</ol>
-      </p>
-    </div>
-  </body>
+    </p>
+    <p>
+      The counting formula tells us that for all \(s \in G\),
+      \[ \vert G \vert = \vert Z(s) \vert \vert C(s) \vert . \]
+      It follows that the order of every conjugacy class divides the order of the group.
+    </p>
+    <p>
+      The <strong>class equation</strong> of a finite group is defined to be the summation of the orders of the conjugacy classes \(C_{1}, \dotsc, C_{k}\):
+      \[ \vert G \vert = \vert C_{1} \vert + \dotsb + \vert C_{k} \vert = \sum_{s \in Z} 1 + \dotsb + \vert C_{k} \vert . \]
+      Given representatives from each conjugacy class \(g_{1}, \dotsc, g_{k}\), we can write this:
+      \[ \vert G \vert = \vert C(g_{1}) \vert + \dotsb + \vert C(g_{k}) \vert = \frac{\vert G \vert}{\vert Z(g_{1}) \vert} + \dotsb + \frac{\vert G \vert}{\vert Z(g_{k}) \vert} = \vert G \vert \sum_{i = 1}^{k} \frac{1}{Z(g_{i})} .\]
+    </p>
+    <p>
+      Examples:
+    <ol>
+      <li>In an abelian group, each element is in its own conjugacy class and the class equation has all 1's.</li>
+      <li>
+        <p>
+          The symmetric group \(S_{3}\) has order 6. Since \(Z(S_{3}) = \{e\}\), the class equation looks like
+          \[ 6 = 1 + \dotsb , \]
+          where the other terms are not 1.
+        </p>
+        <p>
+          Let \(\sigma = (1 2 3)\). Since \(\vert \sigma \vert = 3\), \(\vert C(\sigma) \vert\) must be 3 or 6. But it can't be 6 because \(C(\sigma)\) doesn't contain \(\{e\}\). So \(\vert C(\sigma) \vert = 3\) and the class equation becomes
+          \[ 6 = 1 + 3 + \dotsb . \]
+          This forces the remaining term to be 2. The full class equation (reordered) is
+          \[ 6 = 1 + 2 + 3 . \]
+        </p>
+      </li>
+      <li>
+        <p>
+          In the previous section, we said that the rotation group which preserves the regular dodecahedron is \(A_{5}\), which has order 60. The elements of this group can be classified as follows:
+        <ul>
+          <li>the identity</li>
+          <li>the 24 non-trivial elements which stabilize the 6 pairs of opposite faces, which have order 5</li>
+          <li>the 15 non-trivial elements which stabilize the 15 pairs of opposite edges, which have order 2</li>
+          <li>the 20 non-trivial elements which stabilize the 20 pairs of opposite vertices, which have order 3</li>
+        </ul>
+        ...
+        </p>
+      </li>
+      <li>
+        <p>
+          Any group of prime power order has a non-trivial center.
+        </p>
+        <p>
+          Let \(\vert G \vert = p^{e}\) with \(e \ge 1\). Every term on the right side of the class equation must divide \(p^{e}\). Since every term with a power of 1 or more on the right side divides \(p\), the number of 1's must also divide \(p\).
+          So the center must be non-trivial.
+        </p>
+      </li>
+      <li>
+        <p>
+          Every group of order \(p^{2}\) is abelian.
+        </p>
+        <p>
+          Let \(G\) be a group of order \(p^{2}\). We know its center \(Z\) is not trivial, so it must have order \(p\) or \(p^{2}\). If it has order \(p^{2}\), then \(Z = G\) and \(G\) is abelian.
+        </p>
+        <p>
+          Now suppose the order of \(Z\) is \(p\), and take any element \(x\) not in \(Z\). The centralizer \(Z(x)\) contains \(x\) as well as \(Z\), so its order is strictly larger than \(p\). Since the order of \(Z(x)\) must divide \(p^{2}\), we
+          must have \(Z(x) = G\). But this implies that \(x\) is in the center, which is a contradiction.
+        </p>
+      </li>
+      <li>
+        <p>conjugation in the symmetric group...</p>
+      </li>
+    </ol>
+    </p>
+  </div>
+</body>
+
 </html>
