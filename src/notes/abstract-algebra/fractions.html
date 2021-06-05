@@ -2,36 +2,31 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <title>Fraction Fields</title>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" type="text/css" href="../../styles/notes-standalone.css" />
-  <title>Fraction Fields</title>
 </head>
 
 <body>
-  <div style="margin-left:auto;margin-right:auto;width:40em">
-    <p>
-      A <strong>zero divisor</strong> of a ring is a nonzero element \(a\) for which \(ab = 0\) for some other nonzero element \(b\). An <strong>integral domain</strong>, or just a domain, is a nonzero ring with no zero divisors.
-    </p>
-    <p>
-      An integral domain satisfies the cancellation law:
-      \[ \textrm{if }ab = ac\textrm{ and } a \neq 0\textrm{, then } b = c. \]
-    </p>
-    <p>
-      Examples of integral domains include any subring of a field and the polynomial ring \(R[x]\) when \(R\) is an integral domain. A non-example is \(\mathbb{Z}/4\mathbb{Z}\).
-    </p>
-    <p>
-      Any integral domain \(R\) can be embedded in a field \(F\) called the <strong>fraction field</strong> or <strong>quotient field</strong> of \(R\) which is constructed as follows. Define a fraction to be a symbol \(\frac{a}{b}\) where \(a\) and
-      \(b\) are in \(R\) and \(b \neq 0\). Let \(F\) be the set of equivalence classes of fractions, where \(\frac{a_1}{b_1}\) and \(\frac{a_2}{b_2}\) are equivalent if \(a_1b_2 = a_2b_1\). Sums and products are given by \(\frac{a}{b} + \frac{c}{d} =
-      \frac{ad + bc}{bd}\) and \(\frac{a}{b}\frac{c}{d} = \frac{ac}{bd}\). There is an injection from \(R\) to \(F\) which sends an element \(a\) to \(\frac{a}{1}\).
-    </p>
-    <p>
-      Furthermore, the fraction field \(F\) is the smallest field containing \(R\) in the following sense. If there is an injection from \(R\) to another field \(F'\), then there is an injection from \(F\) to \(F'\) which sends \(\frac{a}{b}\) to
-      \(ab^{-1}\). In other words, the map \(R \to F'\) "factors through" the quotient field \(F\). It's straightforward to check that this mapping is indeed a homomorphism of rings. Its kernel is an ideal of \(F\) so it must be trivial.
-    </p>
-  </div>
+  <p>
+    A <strong>zero divisor</strong> of a ring is a nonzero element \(a\) for which \(ab = 0\) for some other nonzero element \(b\). An <strong>integral domain</strong>, or just a domain, is a nonzero ring with no zero divisors.
+  </p>
+  <p>
+    An integral domain satisfies the cancellation law:
+    \[ \textrm{if }ab = ac\textrm{ and } a \neq 0\textrm{, then } b = c. \]
+  </p>
+  <p>
+    Examples of integral domains include any subring of a field and the polynomial ring \(R[x]\) when \(R\) is an integral domain. A non-example is \(\mathbb{Z}/4\mathbb{Z}\).
+  </p>
+  <p>
+    Any integral domain \(R\) can be embedded in a field \(F\) called the <strong>fraction field</strong> or <strong>quotient field</strong> of \(R\) which is constructed as follows. Define a fraction to be a symbol \(\frac{a}{b}\) where \(a\) and
+    \(b\) are in \(R\) and \(b \neq 0\). Let \(F\) be the set of equivalence classes of fractions, where \(\frac{a_1}{b_1}\) and \(\frac{a_2}{b_2}\) are equivalent if \(a_1b_2 = a_2b_1\). Sums and products are given by \(\frac{a}{b} + \frac{c}{d} =
+    \frac{ad + bc}{bd}\) and \(\frac{a}{b}\frac{c}{d} = \frac{ac}{bd}\). There is an injection from \(R\) to \(F\) which sends an element \(a\) to \(\frac{a}{1}\).
+  </p>
+  <p>
+    Furthermore, the fraction field \(F\) is the smallest field containing \(R\) in the following sense. If there is an injection from \(R\) to another field \(F'\), then there is an injection from \(F\) to \(F'\) which sends \(\frac{a}{b}\) to
+    \(ab^{-1}\). In other words, the map \(R \to F'\) "factors through" the quotient field \(F\). It's straightforward to check that this mapping is indeed a homomorphism of rings. Its kernel is an ideal of \(F\) so it must be trivial.
+  </p>
 </body>
 
 </html>
