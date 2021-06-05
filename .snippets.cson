@@ -1,0 +1,38 @@
+# Copy (or append) this file to ~/.atom/snippets.cson in order to use these snippets in Atom.
+
+'.html':
+  'Proof':
+    'prefix': 'proof'
+    'description': 'The proof of a result'
+    'body': '''
+        <div class="proof">
+          <span class="proof">Proof.</span>
+          <span>
+            $1
+          </span>
+          <p class="square">\\\\(\\\\square\\\\)</p>
+        </div>
+        '''
+
+  'Result':
+    'prefix': 'result'
+    'description': "The statement of a theorem, proposition, lemma, or other result"
+    'body': '''
+        <p>
+          <span class="result">$1.</span>
+          $2
+        </p>
+        '''
+
+  'Named Result':
+    'prefix': 'named'
+    'description': 'A result with a name included (e.g. Gauss\'s Lemma)'
+    'body': '''
+       <p>
+         <span class="result">
+           $1
+           <span class="name">($2)</span><span>.</span>
+         </span>
+         $3
+       </p>
+      '''
