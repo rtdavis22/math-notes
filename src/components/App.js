@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  NavLink,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
 import NotesConfig from '../notes/NotesConfig';
 import ActiveNav from './ActiveNav';
@@ -6,32 +13,28 @@ import NotesPanel from './NotesPanel';
 
 import '../styles/app.css';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const navList = NotesConfig.sections.map((subject) => (
+    <li key={subject.name}>
+      <NavLink to={subject.subdirectory} activeClassName="selected">
+        {subject.name}
+      </NavLink>
+    </li>
+  ));
 
-    this.state = { selectedSubjectId: 0 };
-  }
+  const routes = NotesConfig.sections.map((subject, idx) => (
+    <Route key={subject.subdirectory} path={`/${subject.subdirectory}`}>
+      <div id="content-wrapper">
+        <NotesPanel sectionConfig={NotesConfig.sections[idx]} />
+      </div>
+      <div id="active-nav-wrapper">
+        <ActiveNav sectionConfig={NotesConfig.sections[idx]} />
+      </div>
+    </Route>
+  ));
 
-  selectSubject(id) {
-    this.setState({ selectedSubjectId: id });
-  }
-
-  render() {
-    const sectionConfig = NotesConfig.sections[this.state.selectedSubjectId];
-
-    const navList = NotesConfig.sections.map((subject, idx) => (
-      <li key={subject.name}>
-        <button
-          type="button"
-          className={(this.state.selectedSubjectId === idx) ? 'selected' : ''}
-          onClick={() => this.selectSubject(idx)}>
-          {subject.name}
-        </button>
-      </li>
-    ));
-
-    return (
+  return (
+    <Router>
       <div>
         <div>
           <div id="section-menu-wrapper">
@@ -41,15 +44,15 @@ export default class App extends React.Component {
               </ul>
             </nav>
           </div>
-          <div id="content-wrapper">
-            <NotesPanel sectionConfig={sectionConfig} />
-          </div>
-          <div id="active-nav-wrapper">
-            <ActiveNav sectionConfig={sectionConfig} />
-          </div>
+          <Switch>
+            {routes}
+            <Route>
+              <Redirect to={`/${NotesConfig.sections[0].subdirectory}`} />
+            </Route>
+          </Switch>
         </div>
         <div style={{ clear: 'both' }} />
       </div>
-    );
-  }
+    </Router>
+  );
 }

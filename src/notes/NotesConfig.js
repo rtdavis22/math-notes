@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default {
   sections: [{
     name: 'Abstract Algebra',
-    subdirectory: 'abstract_algebra',
+    subdirectory: 'abstract-algebra',
     sections: [
       { name: 'Group Homomorphisms', file: 'homomorphisms' },
       { name: 'Quotient Groups', file: 'quotient-groups' },
@@ -21,7 +21,7 @@ export default {
     ],
   }, {
     name: 'Linear Algebra',
-    subdirectory: 'linear_algebra',
+    subdirectory: 'linear-algebra',
     sections: [
       { name: 'Duality', file: 'duality' },
     ],
