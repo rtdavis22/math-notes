@@ -19,8 +19,11 @@ nav.activeNav > ul > li > a {
 nav.activeNav > ul > li > a {
   font-size: 11px;
   color: black;
+  border-left: 3px transparent solid;
+  padding-left: 2px;
 }
 
 nav.activeNav > ul > li > a.selected {
   font-weight: bold;
+  border-left: 3px black solid;
 }

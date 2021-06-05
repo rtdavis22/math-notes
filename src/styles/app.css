@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #section-menu-wrapper {
     width: calc(50% - 20em);
     float:left;

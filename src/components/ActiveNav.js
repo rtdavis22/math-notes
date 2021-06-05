@@ -44,7 +44,7 @@ export default class ActiveNav extends React.Component {
         <a
           className={(this.state.selectedSectionId === idx) ? 'selected' : ''}
           href={`#${sectionConfig.file}`}
-          onClick={() => this.handleScroll()}>
+          onClick={this.handleScroll}>
           {sectionConfig.name}
         </a>
       </li>
