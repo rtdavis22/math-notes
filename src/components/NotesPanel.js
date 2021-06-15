@@ -2,7 +2,7 @@ import React from 'react';
 
 import NotesSection from './NotesSection';
 
-import { ConfigType } from '../notes/NotesConfig';
+import {ConfigType} from '../notes/NotesConfig';
 
 import '../styles/notes-panel.css';
 
@@ -14,7 +14,7 @@ export default class NotesPanel extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { sections: null };
+    this.state = {sections: null};
   }
 
   componentDidMount() {
@@ -41,7 +41,7 @@ export default class NotesPanel extends React.Component {
           </div>
         );
       })
-    ))).then((res) => this.setState({ sections: res }));
+    ))).then((res) => this.setState({sections: res}));
   }
 
   render() {

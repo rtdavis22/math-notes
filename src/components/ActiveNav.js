@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ConfigType } from '../notes/NotesConfig';
+import {ConfigType} from '../notes/NotesConfig';
 
 import '../styles/active-nav.css';
 
@@ -12,7 +12,7 @@ export default class ActiveNav extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { selectedSectionId: 0 };
+    this.state = {selectedSectionId: 0};
   }
 
   componentDidMount() {
@@ -25,13 +25,13 @@ export default class ActiveNav extends React.Component {
 
   handleScroll = () => {
     const fromTop = window.scrollY;
-    const { sections } = this.props.sectionConfig;
+    const {sections} = this.props.sectionConfig;
 
     for (let i = 0; i < sections.length; i++) {
       const section = document.querySelector(`#${sections[i].file}`);
       if (section.offsetTop + section.offsetHeight > fromTop) {
         if (this.state.selectedSectionId !== i) {
-          this.setState({ selectedSectionId: i });
+          this.setState({selectedSectionId: i});
         }
         break;
       }

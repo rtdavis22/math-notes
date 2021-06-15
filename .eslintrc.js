@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    "object-curly-spacing": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-filename-extension": "off",

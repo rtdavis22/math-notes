@@ -56,7 +56,7 @@ export default function App() {
             </Route>
           </Switch>
         </div>
-        <div style={{ clear: 'both' }} />
+        <div style={{clear: 'both'}} />
       </div>
     </Router>
   );
